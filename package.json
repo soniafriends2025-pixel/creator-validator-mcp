@@ -2,7 +2,7 @@
   "name": "creator-validator-mcp",
   "version": "0.1.0",
   "private": true,
-  "description": "LOCAL TEST-ONLY MCP server for Creator Validator (SoniaIA). Read-only: about, pack options, start order. Holds no keys and no client data.",
+  "description": "Creator Validator by SoniaIA: influencer vetting MCP server for ChatGPT and Claude. Holds no keys and stores no client data.",
   "type": "module",
   "bin": {
     "creator-validator-mcp": "dist/index.js"
