@@ -4,29 +4,28 @@ Find and vet influencers before a campaign, without leaving the chat. **Already 
 
 **Server URL:** `https://mcp.soniaia.com/mcp` (Streamable HTTP, no auth)
 
-## Plans
+## The qualitative read, on every plan
 
-| Plan | Price | For |
-|------|-------|-----|
-| **Validate 5** | €300 | You already have 5 creators in mind. Each one vetted against your brief, one clear verdict each. 24–48h. |
-| **Rank 10** | €500 | You have up to 10 creators. All vetted and ranked by fit and commercial intent, with a recommendation memo. 24h priority. |
-| **Find + Vet** | €1,000 (launch) | You want help selecting. We find and vet 10 creators for your brief (brand style, audience, campaign objective), plus the angles and formats working in your niche now. Starts with a 15-minute call. |
+Every creator gets a qualitative and quantitative read on real-time data, against your brief, reviewed by a person:
 
-One-off per project, no subscription. Instagram, TikTok and YouTube.
-
-## What gets checked
-
-A qualitative and quantitative assessment of each creator on real-time data, reviewed by a person:
-
-- **Commercial intent:** how the audience relates to the creator, and whether it acts on what they recommend
-- **Audience:** who their audience is
+- **Brand and campaign fit:** do they fit your brand style and your campaign objective?
+- **Audience:** who their audience is, and whether it is relevant in your country and language
+- **Commercial intent:** how the audience relates to them, and whether it acts on what they recommend
 - **Momentum:** alive, peaking, flat or inflated
 - **Personality and vibe:** tone, style and the kind of content they make
 - **Authenticity signals:** whether the followers and engagement look real
 
-One verdict per creator against your brief: approve for shortlist, caution (conditions apply), or cut or hold.
+One verdict per creator: approve for shortlist, caution (conditions apply), or cut or hold.
 
-**Want help selecting creators? Find + Vet** finds and vets them for you: the right creators for your brief (brand style, audience, campaign objective), selected on real-time data (right audience age and location, growing, high engagement), each vetted with a verdict, plus the angles and formats working in your niche now. €1,000 launch price for 10 creators, starts with a 15-minute call.
+## Plans
+
+| Plan | Price | What it solves |
+|------|-------|----------------|
+| **Validate 5** | €300 | "Are these 5 worth it?" You have the creators: the full read on each, with a verdict and the reasoning. 24–48h. |
+| **Rank 10** | €500 | "Which of these 10 do I pick?" The full read on up to 10, ranked by fit and commercial intent, with a recommendation memo. 24h priority. |
+| **Find + Vet** | €1,000 (launch) | "Find me the right ones." We build the list for your brief: selected on real-time data (best metrics, right audience age and location, growing, high engagement), the same full read on each of the 10 with a verdict, plus the angles and formats working in your niche now. Starts with a 15-minute call. |
+
+One-off per project, no subscription. Instagram, TikTok and YouTube.
 
 ## Ask your assistant things like
 
