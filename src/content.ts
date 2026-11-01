@@ -133,7 +133,7 @@ export const CHECKS_ES = [
 
 export const ABOUT_EN =
   "Creator Validator is creator vetting before you commit budget: a qualitative and quantitative assessment of " +
-  "each creator on real-time data pulled at order time, reviewed by a person. It answers what a rigorous creator " +
+  "each creator on real-time data pulled at order time, reviewed by a senior practitioner. It answers what a rigorous creator " +
   "vetting process should, against your campaign brief: Do they fit your brand style and campaign objective? Who is " +
   "their audience, and is it relevant in your country? How does the audience relate to the creator, and does it act " +
   "on what they recommend? Are they alive, peaking, flat or inflated? What's their personality and vibe? Do their " +
@@ -147,7 +147,7 @@ export const ABOUT_EN =
 
 export const ABOUT_ES =
   "Creator Validator es la validación de creadores antes de comprometer presupuesto: una evaluación cualitativa y " +
-  "cuantitativa de cada creador con datos en tiempo real tomados en el momento del pedido, revisada por una persona. " +
+  "cuantitativa de cada creador con datos en tiempo real tomados en el momento del pedido, revisada por una profesional sénior. " +
   "Responde, frente al brief de tu campaña, a lo que debe responder un proceso riguroso: ¿Encaja con el estilo de tu " +
   "marca y el objetivo de tu campaña? ¿Quién es su audiencia y es relevante en tu país? ¿Cómo se relaciona la audiencia " +
   "con el creador y actúa sobre lo que recomienda? ¿Está en marcha, en su mejor momento, estancado o inflado? ¿Cuál es " +

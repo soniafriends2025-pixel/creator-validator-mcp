@@ -1,12 +1,12 @@
 # Creator Validator MCP — find and vet influencers from Claude, ChatGPT, Grok, Gemini and Cursor
 
-Find and vet influencers before a campaign, without leaving the chat. **Already have creators in mind?** We vet them before you commit budget: who the audience is and whether it acts on the creator's recommendations, momentum, personality and vibe, and authenticity signals. **Need help selecting?** We find the right creators for your brief (brand style, audience, campaign objective) and vet them, plus the angles and formats working in your niche right now. Real-time data, reviewed by a person. Creator vetting and creator due diligence for influencer campaigns. [Creator Validator](https://www.soniaia.com/tools/creator-validator) is a human-reviewed influencer vetting service by SoniaIA: a qualitative and quantitative read on real-time data, against your brief, of brand and campaign fit, who the audience is, commercial intent (whether the audience acts on what the creator recommends), momentum, personality and vibe, and authenticity signals, with a Creator Dossier and a clear verdict per creator.
+Find and vet influencers before a campaign, without leaving the chat. **Already have creators in mind?** We vet them before you commit budget: who the audience is and whether it acts on the creator's recommendations, momentum, personality and vibe, and authenticity signals. **Need help selecting?** We find the right creators for your brief (brand style, audience, campaign objective) and vet them, plus the angles and formats working in your niche right now. Real-time data, reviewed by a senior practitioner. Creator vetting and creator due diligence for influencer campaigns. [Creator Validator](https://www.soniaia.com/tools/creator-validator) is a human-reviewed influencer vetting service by SoniaIA: a qualitative and quantitative read on real-time data, against your brief, of brand and campaign fit, who the audience is, commercial intent (whether the audience acts on what the creator recommends), momentum, personality and vibe, and authenticity signals, with a Creator Dossier and a clear verdict per creator.
 
 **Server URL:** `https://mcp.soniaia.com/mcp` (Streamable HTTP, no auth)
 
 ## The qualitative read, on every plan
 
-Every creator gets a qualitative and quantitative read on real-time data, against your brief, reviewed by a person:
+Every creator gets a qualitative and quantitative read on real-time data, against your brief, reviewed by a senior practitioner:
 
 - **Brand and campaign fit:** do they fit your brand style and your campaign objective?
 - **Audience:** who their audience is, and whether it is relevant in your country and language
