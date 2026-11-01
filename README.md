@@ -4,6 +4,16 @@ Vet influencers before a campaign without leaving the chat: creator vetting, who
 
 **Server URL:** `https://mcp.soniaia.com/mcp` (Streamable HTTP, no auth)
 
+## Plans
+
+| Plan | Price | For |
+|------|-------|-----|
+| **Validate 5** | €300 | You already have 5 creators in mind. Each one vetted against your brief, one clear verdict each. 24–48h. |
+| **Rank 10** | €500 | You have up to 10 creators. All vetted and ranked by fit and commercial intent, with a recommendation memo. 24h priority. |
+| **Find + Vet** | €1,000 (launch) | You want help selecting. We find and vet 10 creators for your brief (brand style, audience, campaign objective), plus the angles and formats working in your niche now. Starts with a 15-minute call. |
+
+One-off per project, no subscription. Instagram, TikTok and YouTube.
+
 ## What gets checked
 
 A qualitative and quantitative assessment of each creator on real-time data, reviewed by a person:

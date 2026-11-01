@@ -61,7 +61,7 @@ export const PACKS: Record<PackId, Pack> = {
     includes_en:
       "5 creators you already have in mind: commercial intent, who their audience is, momentum, personality and authenticity signals, and one clear verdict on each. You send the handles.",
     includes_es:
-      "5 creadores que ya tienes en mente: intención comercial, calidad de audiencia, riesgo de autenticidad y un veredicto claro por cada uno. Tú envías los handles.",
+      "5 creadores que ya tienes en mente: intención comercial, quién es su audiencia, momentum, personalidad y señales de autenticidad, y un veredicto claro por cada uno. Tú envías los handles.",
   },
   rank10: {
     id: "rank10",
