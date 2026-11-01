@@ -116,8 +116,7 @@ export const ABOUT_EN =
   "Each creator gets one verdict: approve for shortlist, caution (conditions apply), or cut or hold. Alongside " +
   "commercial intent it checks audience quality, authenticity risk, creator personality and momentum. " +
   "You get a Creator Dossier: a human-readable PDF report plus an agent-ready .md summary per creator. " +
-  "Human-reviewed, delivered in 24-48h. Reviewed by Sonia Tamayo Díaz (SoniaIA), 20 years in growth marketing " +
-  "across WPP, Publicis and Dentsu.";
+  "Human-reviewed, delivered in 24-48h. Reviewed by Sonia Tamayo Díaz (SoniaIA), a 20-year industry veteran.";
 
 export const ABOUT_ES =
   "Creator Validator lee la intención comercial de un creador antes de contratarlo: si su audiencia de verdad " +
@@ -128,7 +127,7 @@ export const ABOUT_ES =
   "cautela (con condiciones), o descartar o esperar. Además de la intención comercial revisa calidad de audiencia, " +
   "riesgo de autenticidad, personalidad del creador y momentum. Recibes un Creator Dossier: " +
   "un informe PDF legible más un resumen .md listo para agentes por cada creador. Revisado por una persona, " +
-  "entregado en 24-48h. Lo revisa Sonia Tamayo Díaz (SoniaIA), 20 años en growth marketing en WPP, Publicis y Dentsu.";
+  "entregado en 24-48h. Lo revisa Sonia Tamayo Díaz (SoniaIA), veterana del sector con 20 años de experiencia.";
 
 // One Creator Dossier per order. Deliverables line (both languages).
 export const DOSSIER_EN =

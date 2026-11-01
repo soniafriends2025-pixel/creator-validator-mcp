@@ -1,0 +1,14 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "com.soniaia/creator-validator",
+  "title": "Creator Validator by SoniaIA",
+  "description": "Influencer vetting before you hire: check creators, see packs, start a pre-filled order.",
+  "version": "0.1.0",
+  "websiteUrl": "https://www.soniaia.com/tools/creator-validator",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.soniaia.com/mcp"
+    }
+  ]
+}
