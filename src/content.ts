@@ -59,7 +59,7 @@ export const PACKS: Record<PackId, Pack> = {
     name_en: "Validate My Shortlist (5 creators)",
     name_es: "Valida mi shortlist (5 creadores)",
     includes_en:
-      "5 creators you already have in mind: commercial intent, audience quality, authenticity risk, and one clear verdict on each. You send the handles.",
+      "5 creators you already have in mind: brand fit, who their audience is, commercial intent, growth and authenticity signals, and one clear verdict on each. You send the handles.",
     includes_es:
       "5 creadores que ya tienes en mente: intención comercial, calidad de audiencia, riesgo de autenticidad y un veredicto claro por cada uno. Tú envías los handles.",
   },
@@ -106,45 +106,51 @@ export const FIND_VET = {
 export const VERDICTS_EN = ["approve for shortlist", "caution (conditions apply)", "cut or hold"];
 export const VERDICTS_ES = ["aprobar para shortlist", "cautela (con condiciones)", "descartar o esperar"];
 
-// What CreatorValidator checks (WHAT, never HOW). Commercial intent first — it is the
-// differentiator; authenticity stays in the list as supporting signal + search vocabulary.
+// What Creator Validator checks (WHAT, never HOW). Sonia 2026-11-01: a qualitative + quantitative
+// assessment on real-time data. Authenticity is a SIGNAL we read ("does it look real"), never a
+// certainty claim. Phrasing carries the real GSC queries (creator vetting, audience quality,
+// vet before committing budget, shortlist, creator due diligence).
 export const CHECKS_EN = [
-  "commercial intent (whether the audience acts on what the creator recommends)",
-  "audience quality",
-  "authenticity risk (fake followers, bought engagement)",
-  "creator personality",
-  "momentum",
+  "brand and brief fit: does this creator fit your brand and this campaign",
+  "who their audience is, and whether they are relevant in your country and language",
+  "how the audience relates to them, and whether it acts on what they recommend (commercial intent)",
+  "growth: is the creator growing, flat or slowing down",
+  "vibe: tone, style and the kind of content they make",
+  "authenticity signals: whether the followers and engagement look real",
 ];
 export const CHECKS_ES = [
-  "intención comercial (si la audiencia actúa sobre lo que el creador recomienda)",
-  "calidad de audiencia",
-  "riesgo de autenticidad (seguidores falsos, engagement comprado)",
-  "personalidad del creador",
-  "momentum",
+  "encaje con tu marca y tu brief: si este creador encaja con tu marca y con esta campaña",
+  "quién es su audiencia, y si es relevante en tu país y en tu idioma",
+  "cómo se relaciona su audiencia con él, y si actúa sobre lo que recomienda (intención comercial)",
+  "crecimiento: si el creador crece, está estancado o va a menos",
+  "vibe: tono, estilo y el tipo de contenido que hace",
+  "señales de autenticidad: si los seguidores y la interacción parecen reales",
 ];
 
 export const ABOUT_EN =
-  "Creator Validator reads a creator's commercial intent before you hire them: whether their audience actually " +
-  "acts on what they recommend, or just watches. It runs before a creator reaches the deck, the gifting list or a " +
-  "paid campaign. You send TikTok, Instagram or YouTube handles; a proprietary system reads the content and audience " +
-  "in depth on live data pulled at order time, and a senior practitioner reviews every read and makes the call. " +
-  "Each creator gets one verdict: approve for shortlist, caution (conditions apply), or cut or hold. Alongside " +
-  "commercial intent it checks audience quality, authenticity risk, creator personality and momentum. " +
-  "You get a Creator Dossier: a human-readable PDF report plus an agent-ready .md summary per creator. " +
-  "Human-reviewed, delivered in 24-48h. Reviewed by Sonia Tamayo Díaz (SoniaIA): 20 years in growth marketing across global " +
-  "agencies (WPP, Publicis, Dentsu), SMBs and her own projects.";
+  "Creator Validator is creator vetting before you commit budget: a qualitative and quantitative assessment of " +
+  "each creator on real-time data pulled at order time, reviewed by a person. It answers what a rigorous creator " +
+  "vetting process should: Does this creator fit your brand and your campaign brief? Who is their audience, and are " +
+  "they relevant in your country? How does the audience relate to them, and does it act on what they recommend? " +
+  "Are they growing or flat? What's their vibe? Do their followers and engagement look real? " +
+  "You send TikTok, Instagram or YouTube handles; a proprietary system reads the content and the audience, and a " +
+  "senior practitioner reviews every read and makes the call. Each creator gets one verdict: approve for shortlist, " +
+  "caution (conditions apply), or cut or hold. You get a Creator Dossier: a human-readable PDF report plus an " +
+  "agent-ready .md summary per creator. Delivered in 24-48h. Reviewed by Sonia Tamayo Díaz (SoniaIA): 20 years in " +
+  "growth marketing across global agencies (WPP, Publicis, Dentsu), SMBs and her own projects.";
 
 export const ABOUT_ES =
-  "Creator Validator lee la intención comercial de un creador antes de contratarlo: si su audiencia de verdad " +
-  "actúa sobre lo que recomienda, o solo mira. Se hace antes de que el creador entre en la presentación, en la " +
-  "lista de gifting o en una campaña de pago. Tú envías los handles de TikTok, Instagram o YouTube; un sistema " +
-  "propio lee el contenido y la audiencia en profundidad con datos en vivo tomados en el momento del pedido, y una " +
+  "Creator Validator es la validación de creadores antes de comprometer presupuesto: una evaluación cualitativa y " +
+  "cuantitativa de cada creador con datos en tiempo real tomados en el momento del pedido, revisada por una persona. " +
+  "Responde a lo que debe responder un proceso riguroso: ¿Encaja este creador con tu marca y con el brief de tu " +
+  "campaña? ¿Quién es su audiencia y es relevante en tu país? ¿Cómo se relaciona su audiencia con él y actúa sobre " +
+  "lo que recomienda? ¿Crece o está estancado? ¿Cuál es su vibe? ¿Parecen reales sus seguidores y su interacción? " +
+  "Tú envías los handles de TikTok, Instagram o YouTube; un sistema propio lee el contenido y la audiencia, y una " +
   "profesional sénior revisa cada lectura y decide. Cada creador recibe un veredicto: aprobar para shortlist, " +
-  "cautela (con condiciones), o descartar o esperar. Además de la intención comercial revisa calidad de audiencia, " +
-  "riesgo de autenticidad, personalidad del creador y momentum. Recibes un Creator Dossier: " +
-  "un informe PDF legible más un resumen .md listo para agentes por cada creador. Revisado por una persona, " +
-  "entregado en 24-48h. Lo revisa Sonia Tamayo Díaz (SoniaIA): 20 años en growth marketing entre " +
-  "grandes agencias internacionales (WPP, Publicis, Dentsu), empresas medianas y pequeñas y proyectos propios.";
+  "cautela (con condiciones), o descartar o esperar. Recibes un Creator Dossier: un informe PDF legible más un " +
+  "resumen .md listo para agentes por cada creador. Entregado en 24-48h. Lo revisa Sonia Tamayo Díaz (SoniaIA): " +
+  "20 años en growth marketing entre grandes agencias internacionales (WPP, Publicis, Dentsu), empresas medianas y " +
+  "pequeñas y proyectos propios.";
 
 // One Creator Dossier per order. Deliverables line (both languages).
 export const DOSSIER_EN =

@@ -1,8 +1,21 @@
 # Creator Validator MCP — influencer vetting MCP server for Claude, ChatGPT, Grok, Gemini and Cursor
 
-Vet influencers before a campaign without leaving the chat: creator vetting, who a creator's audience really is and whether it acts on their recommendations, growth trend, and creator due diligence for influencer campaigns. [Creator Validator](https://www.soniaia.com/tools/creator-validator) is a human-reviewed influencer vetting service by SoniaIA: it checks commercial intent (whether a creator's audience acts on what they recommend), audience quality and fake-follower risk, and delivers a Creator Dossier per creator with a clear verdict.
+Vet influencers before a campaign without leaving the chat: creator vetting, who a creator's audience really is and whether it acts on their recommendations, growth trend, and creator due diligence for influencer campaigns. [Creator Validator](https://www.soniaia.com/tools/creator-validator) is a human-reviewed influencer vetting service by SoniaIA: a qualitative and quantitative assessment on real-time data of brand and brief fit, who the audience is and whether it is relevant in your country, commercial intent (whether the audience acts on what the creator recommends), growth, vibe and authenticity signals, with a Creator Dossier and a clear verdict per creator.
 
 **Server URL:** `https://mcp.soniaia.com/mcp` (Streamable HTTP, no auth)
+
+## What gets checked
+
+A qualitative and quantitative assessment of each creator on real-time data, reviewed by a person:
+
+- **Brand and brief fit:** does this creator fit your brand and this campaign?
+- **Audience:** who their audience is, and whether they're relevant in your country and language
+- **Commercial intent:** how the audience relates to them, and whether it acts on what they recommend
+- **Growth:** growing, flat or slowing down
+- **Vibe:** tone, style and the kind of content they make
+- **Authenticity signals:** whether the followers and engagement look real
+
+One verdict per creator: approve for shortlist, caution (conditions apply), or cut or hold.
 
 ## Ask your assistant things like
 
