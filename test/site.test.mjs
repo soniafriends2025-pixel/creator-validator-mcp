@@ -10,6 +10,9 @@ function probe(env) {
     const link = buildPrefillLink({ v: 1, pack: "validate5", package: "validate5", creators: [] });
     console.log(JSON.stringify({ SITE, CV_PAGE, link }));`;
   const e = { ...process.env, ...env };
+  // Strip test-runner state so the child behaves the same under any runner.
+  for (const k of Object.keys(e)) if (k.startsWith("NODE_TEST_")) delete e[k];
+  if (e.NODE_OPTIONS) e.NODE_OPTIONS = e.NODE_OPTIONS.split(/\s+/).filter((o) => !/test/i.test(o)).join(" ");
   if (env.SONIAIA_SITE_URL === undefined) delete e.SONIAIA_SITE_URL;
   return JSON.parse(execFileSync(process.execPath, ["--input-type=module", "-e", code], { env: e, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }));
 }
