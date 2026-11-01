@@ -6,8 +6,8 @@
  *   - about_creator_validator  : what the service is + Creator Dossier + verdicts (no method).
  *   - get_pack_options         : the two packs (5 / 10), price, what's included.
  *   - start_order              : validates pack (exactly 5 or 10), returns the prefill link
- *                                (form filled -> Pay & continue -> Stripe -> back filled), plus the
- *                                direct Stripe link + paste block as fallback. Takes NO payment,
+ *                                (form filled -> Pay & continue -> Stripe -> order submits by
+ *                                itself when complete) + an order summary. Takes NO payment,
  *                                writes nothing.
  *
  *   - book_find_and_vet        : Find + Vet (no shortlist yet): booking link for the 15-min call +

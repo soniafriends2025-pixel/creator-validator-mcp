@@ -111,7 +111,7 @@ export function createServer(): McpServer {
 
   server.tool(
     "start_order",
-    "Start an influencer vetting order for 5 or 10 creators the buyer already has. Needs the pack (5 or 10), the creator handles or profile links, the campaign brief (product, goal, market) and the buyer email: ask the buyer in the chat for anything missing, then call. Returns one link: the order form opens already filled in, the buyer pays on Stripe and the order goes in by itself. Also returns the direct Stripe link and a paste block as a fallback. Takes no payment and stores nothing. If the buyer has no creators yet, use book_find_and_vet instead.",
+    "Start an influencer vetting order for 5 or 10 creators the buyer already has. Needs the pack (5 or 10), the creator handles or profile links, the campaign brief (product, goal, market) and the buyer email: ask the buyer in the chat for anything missing, then call. Returns one link: the order form opens already filled in, the buyer pays on Stripe and the order goes in by itself. Takes no payment and stores nothing. If the buyer has no creators yet, use book_find_and_vet instead.",
     {
       pack: z.union([z.number(), z.string().max(20)]).describe("Pack size: 5 or 10 (or 'validate5' / 'rank10')"),
       creators: z.array(z.union([z.string().max(300), creatorSchema])).max(50).describe("The creator handles or profile URLs (up to the pack size)"),
@@ -171,7 +171,6 @@ export function createServer(): McpServer {
       const fewer = normalized.length < pk.creators;
 
       const name = lang === "es" ? pk.name_es : pk.name_en;
-      const payEmail = email ? `${pk.paymentLink}?prefilled_email=${encodeURIComponent(email)}` : pk.paymentLink;
 
       const en = [
         `${name}: €${pk.priceEUR}. ${normalized.length} creator${normalized.length === 1 ? "" : "s"} received${
@@ -183,13 +182,15 @@ export function createServer(): McpServer {
         "",
         "2) Press \"Pay & continue\" there and pay on Stripe, in the same browser tab.",
         "",
-        "3) Stripe brings you back and the order goes in by itself. You will see \"Order received\".",
+        fewer
+          ? `3) Stripe brings you back to the form: add the remaining creators (up to ${pk.creators}) and submit.`
+          : "3) Stripe brings you back and the order goes in by itself. You will see \"Order received\".",
+        "If you close the page before that, reply to your Stripe receipt email and we finish the order with you.",
         "",
-        "If the link doesn't open the filled form, pay directly here and paste the block below into the form:",
-        `   ${payEmail}`,
+        "Your order:",
         pasteBlock
           .split("\n")
-          .map((l) => `      ${l}`)
+          .map((l) => `   ${l}`)
           .join("\n"),
         "",
         `Delivery: ${pk.turnaround_en}, human-reviewed, to your email. Questions: ${CONTACT}.`,
@@ -207,13 +208,15 @@ export function createServer(): McpServer {
         "",
         "2) Pulsa \"Pay & continue\" y paga en Stripe, en la misma pestaña del navegador.",
         "",
-        "3) Stripe te devuelve a la web y el pedido se envía solo. Verás \"Order received\".",
+        fewer
+          ? `3) Stripe te devuelve al formulario: añade los creadores que faltan (hasta ${pk.creators}) y envíalo.`
+          : "3) Stripe te devuelve a la web y el pedido se envía solo. Verás \"Order received\".",
+        "Si cierras la página antes, responde al email del recibo de Stripe y terminamos el pedido contigo.",
         "",
-        "Si el enlace no abre el formulario relleno, paga directamente aquí y pega el bloque de abajo en el formulario:",
-        `   ${payEmail}`,
+        "Tu pedido:",
         pasteBlock
           .split("\n")
-          .map((l) => `      ${l}`)
+          .map((l) => `   ${l}`)
           .join("\n"),
         "",
         `Entrega: ${pk.turnaround_es}, revisado por una persona, a tu email. Dudas: ${CONTACT}.`,
