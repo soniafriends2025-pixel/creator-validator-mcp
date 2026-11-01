@@ -1,0 +1,23 @@
+{
+  "name": "creator-validator-mcp",
+  "version": "0.1.0",
+  "private": true,
+  "description": "LOCAL TEST-ONLY MCP server for Creator Validator (SoniaIA). Read-only: about, pack options, start order. Holds no keys and no client data.",
+  "type": "module",
+  "bin": {
+    "creator-validator-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test:tools": "node dist/test-client.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "typescript": "^5.6.3"
+  }
+}

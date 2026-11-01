@@ -1,0 +1,6 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "public",
+  "rewrites": [{ "source": "/mcp", "destination": "/api/mcp" }],
+  "headers": [{ "source": "/mcp", "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }] }]
+}
