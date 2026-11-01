@@ -19,7 +19,7 @@ import {
   BOOKING_URL,
   FIND_VET,
 } from "./content.js";
-import { buildPrefillLink, buildPasteBlock, PrefillCreator, PrefillPayload } from "./prefill.js";
+import { buildPayLink, buildPrefillLink, buildPasteBlock, PrefillCreator, PrefillPayload } from "./prefill.js";
 
 type Lang = "en" | "es";
 const asLang = (v: unknown): Lang => (String(v).toLowerCase().startsWith("es") ? "es" : "en");
@@ -111,7 +111,7 @@ export function createServer(): McpServer {
 
   server.tool(
     "start_order",
-    "Start an influencer vetting order for 5 or 10 creators the buyer already has. Needs the pack (5 or 10), the creator handles or profile links, the campaign brief (product, goal, market) and the buyer email: ask the buyer in the chat for anything missing, then call. Returns one link: the order form opens already filled in, the buyer pays on Stripe and the order goes in by itself. Takes no payment and stores nothing. If the buyer has no creators yet, use book_find_and_vet instead.",
+    "Start an influencer vetting order for creators the buyer already has. Needs the pack, the creator handles or profile links, the campaign brief (product, goal, market) and the buyer email: ask the buyer in the chat for anything missing. Pack rule: more than 5 creators means pack 10 (Rank 10, €500); 5 or fewer means pack 5 (Validate 5, €300) unless the buyer wants the ranked 10-creator pack. BEFORE calling, repeat the email back to the buyer and wait for them to confirm it (the Creator Dossier is delivered there). Returns one link that opens Stripe payment directly with the order inside it; the order goes in automatically once paid and a confirmation email follows. Takes no payment itself and stores nothing. If the buyer has no creators yet, use book_find_and_vet instead.",
     {
       pack: z.union([z.number(), z.string().max(20)]).describe("Pack size: 5 or 10 (or 'validate5' / 'rank10')"),
       creators: z.array(z.union([z.string().max(300), creatorSchema])).max(50).describe("The creator handles or profile URLs (up to the pack size)"),
@@ -166,26 +166,23 @@ export function createServer(): McpServer {
         email,
       };
 
-      const prefillLink = buildPrefillLink(payload);
+      const payLink = buildPayLink(payload);
       const pasteBlock = buildPasteBlock(payload);
       const fewer = normalized.length < pk.creators;
 
       const name = lang === "es" ? pk.name_es : pk.name_en;
 
       const en = [
-        `${name}: €${pk.priceEUR}. ${normalized.length} creator${normalized.length === 1 ? "" : "s"} received${
-          fewer ? ` (pack covers up to ${pk.creators}; you keep the full count and can add or swap later)` : ""
+        `${name}: €${pk.priceEUR}. ${normalized.length} creator${normalized.length === 1 ? "" : "s"} in this order${
+          fewer ? ` (the pack covers up to ${pk.creators}; you can send the rest later by replying to the confirmation email)` : ""
         }.`,
         "",
-        "1) Open this link. Your creators and brief are already on the order form:",
-        `   ${prefillLink}`,
+        "1) Open this link to pay on Stripe. Your order is already inside it:",
+        `   ${payLink}`,
         "",
-        "2) Press \"Pay & continue\" there and pay on Stripe, in the same browser tab.",
+        "2) Pay. That's it: your order goes in automatically, you can close the page after paying.",
         "",
-        fewer
-          ? `3) Stripe brings you back to the form: add the remaining creators (up to ${pk.creators}) and submit.`
-          : "3) Stripe brings you back and the order goes in by itself. You will see \"Order received\".",
-        "If you close the page before that, reply to your Stripe receipt email and we finish the order with you.",
+        `3) Right after payment you'll get a confirmation email at ${email} with your order summary. If it doesn't arrive within a few minutes, check your spam or write to ${CONTACT}.`,
         "",
         "Your order:",
         pasteBlock
@@ -193,25 +190,20 @@ export function createServer(): McpServer {
           .map((l) => `   ${l}`)
           .join("\n"),
         "",
-        `Delivery: ${pk.turnaround_en}, human-reviewed, to your email. Questions: ${CONTACT}.`,
-        "",
-        "Note: the MCP takes no payment and stores nothing. Your creators and brief ride only in the link and your own browser.",
+        `Delivery: ${pk.turnaround_en}, reviewed by Sonia, to ${email}.`,
       ].join("\n");
 
       const es = [
-        `${name}: €${pk.priceEUR}. ${normalized.length} creador${normalized.length === 1 ? "" : "es"} recibido${
-          normalized.length === 1 ? "" : "s"
-        }${fewer ? ` (el pack cubre hasta ${pk.creators}; conservas el total y puedes añadir o cambiar luego)` : ""}.`,
+        `${name}: €${pk.priceEUR}. ${normalized.length} creador${normalized.length === 1 ? "" : "es"} en este pedido${
+          fewer ? ` (el pack cubre hasta ${pk.creators}; puedes enviar el resto después respondiendo al email de confirmación)` : ""
+        }.`,
         "",
-        "1) Abre este enlace. Tus creadores y el brief ya están en el formulario del pedido:",
-        `   ${prefillLink}`,
+        "1) Abre este enlace para pagar en Stripe. Tu pedido ya va dentro:",
+        `   ${payLink}`,
         "",
-        "2) Pulsa \"Pay & continue\" y paga en Stripe, en la misma pestaña del navegador.",
+        "2) Paga. Nada más: tu pedido entra solo y puedes cerrar la página después de pagar.",
         "",
-        fewer
-          ? `3) Stripe te devuelve al formulario: añade los creadores que faltan (hasta ${pk.creators}) y envíalo.`
-          : "3) Stripe te devuelve a la web y el pedido se envía solo. Verás \"Order received\".",
-        "Si cierras la página antes, responde al email del recibo de Stripe y terminamos el pedido contigo.",
+        `3) Justo después del pago recibirás un email de confirmación en ${email} con el resumen de tu pedido. Si no llega en unos minutos, mira en spam o escribe a ${CONTACT}.`,
         "",
         "Tu pedido:",
         pasteBlock
@@ -219,9 +211,7 @@ export function createServer(): McpServer {
           .map((l) => `   ${l}`)
           .join("\n"),
         "",
-        `Entrega: ${pk.turnaround_es}, revisado por una persona, a tu email. Dudas: ${CONTACT}.`,
-        "",
-        "Nota: el MCP no cobra ni guarda nada. Tus creadores y el brief viajan solo en el enlace y en tu propio navegador.",
+        `Entrega: ${pk.turnaround_es}, revisado por Sonia, en ${email}.`,
       ].join("\n");
 
       return text(lang === "es" ? es : en);

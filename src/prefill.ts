@@ -23,6 +23,21 @@ function toBase64Url(s: string): string {
   return Buffer.from(s, "utf8").toString("base64").replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 }
 
+// Direct-to-Stripe order link (2026-11-01): soniaia.com/api/cv/pay validates the order, creates a
+// Stripe Checkout with the order inside it, and redirects straight to payment. The Stripe webhook
+// submits the order, so the buyer can close the page after paying. Price is set server-side by pack.
+export function buildPayLink(payload: PrefillPayload, notes?: string): string {
+  const order = {
+    v: 1,
+    pack: payload.pack,
+    creators: payload.creators,
+    brief: payload.brief,
+    email: payload.email,
+    ...(notes ? { notes } : {}),
+  };
+  return `${SITE}/api/cv/pay?o=${toBase64Url(JSON.stringify(order))}`;
+}
+
 export function buildPrefillLink(payload: PrefillPayload): string {
   const pack = PACKS[payload.pack];
   const encoded = toBase64Url(JSON.stringify(payload));
