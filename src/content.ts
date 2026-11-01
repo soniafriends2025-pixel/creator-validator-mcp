@@ -7,8 +7,26 @@
 // read; no intent score is claimed (the Commercial Intent Index is design-only). We name WHAT Creator Validator checks, never HOW
 // (the method is Sonia's IP). No prices, deliverables or verdict words are invented here.
 
-export const SITE = "https://www.soniaia.com";
-export const CV_PAGE = "https://www.soniaia.com/tools/creator-validator";
+const PROD_SITE = "https://www.soniaia.com";
+
+// SONIAIA_SITE_URL points a local MCP process at a Preview deployment. Unset = production.
+// An invalid value throws at startup: never silently fall back to production.
+export function resolveSite(raw: string | undefined): string {
+  if (raw === undefined) return PROD_SITE;
+  let u: URL;
+  try {
+    u = new URL(raw);
+  } catch {
+    throw new Error(`SONIAIA_SITE_URL is not a valid URL: "${raw}". Expected an https origin like https://example.vercel.app`);
+  }
+  if (u.protocol !== "https:" || u.pathname !== "/" || u.search !== "" || u.hash !== "" || /[?#]/.test(raw)) {
+    throw new Error(`SONIAIA_SITE_URL must be an https origin with no path, query or hash: "${raw}"`);
+  }
+  return `${u.protocol}//${u.host}`;
+}
+
+export const SITE = resolveSite(process.env.SONIAIA_SITE_URL);
+export const CV_PAGE = `${SITE}/tools/creator-validator`;
 export const CONTACT = "hello@soniaia.com";
 
 // The two paid-by-link packs (no 20-pack, no single). Find+Vet is separate: call first.
@@ -21,7 +39,6 @@ export interface Pack {
   perCreatorEUR: number;
   // packageType value the soniaia.com form + submit route already understand.
   formPackage: string;
-  paymentLink: string;
   turnaround_en: string;
   turnaround_es: string;
   name_en: string;
@@ -37,7 +54,6 @@ export const PACKS: Record<PackId, Pack> = {
     priceEUR: 300,
     perCreatorEUR: 60,
     formPackage: "validate5",
-    paymentLink: "https://buy.stripe.com/00waEW1EH4aW59cf2U6Vq03",
     turnaround_en: "24-48h",
     turnaround_es: "24-48h",
     name_en: "Validate My Shortlist (5 creators)",
@@ -53,7 +69,6 @@ export const PACKS: Record<PackId, Pack> = {
     priceEUR: 500,
     perCreatorEUR: 50,
     formPackage: "rank10",
-    paymentLink: "https://buy.stripe.com/7sY00i3MPfTEfNQ1c46Vq04",
     turnaround_en: "24h (priority)",
     turnaround_es: "24h (prioridad)",
     name_en: "Rank My Shortlist (10 creators)",

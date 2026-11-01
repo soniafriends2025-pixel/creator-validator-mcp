@@ -2,7 +2,7 @@
 // first in the URL fragment (fragments are never sent to any server), then in the
 // buyer's sessionStorage after they click to pay. This MCP stores NOTHING.
 
-import { PACKS, PackId } from "./content.js";
+import { PACKS, PackId, SITE } from "./content.js";
 
 export interface PrefillCreator {
   url: string;
@@ -28,7 +28,7 @@ export function buildPrefillLink(payload: PrefillPayload): string {
   const encoded = toBase64Url(JSON.stringify(payload));
   // Points at the real post-payment form page. The fragment (#cvprefill=) is decoded
   // client-side by the (additive, backward-compatible) success page.
-  return `${"https://www.soniaia.com"}/tools/fake-check/success?package=${pack.formPackage}#cvprefill=${encoded}`;
+  return `${SITE}/tools/fake-check/success?package=${pack.formPackage}#cvprefill=${encoded}`;
 }
 
 // A human-readable block the buyer can paste into the current form TODAY (zero site change).
