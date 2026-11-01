@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
   "name": "com.soniaia/creator-validator",
   "title": "Creator Validator by SoniaIA",
-  "description": "Influencer vetting before you hire: creator vetting, fake-follower checks, order and pay from chat.",
+  "description": "Creator vetting before you hire: who the audience is, whether it buys, growth. Order from chat.",
   "version": "0.1.0",
   "websiteUrl": "https://www.soniaia.com/tools/creator-validator",
   "remotes": [
