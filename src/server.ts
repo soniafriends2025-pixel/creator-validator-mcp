@@ -141,9 +141,12 @@ export function createServer(): McpServer {
       const pk = PACKS[packId];
 
       // Normalize creators.
+      // Scheme-less platform links ("tiktok.com/@name") get https:// so the pay page accepts them.
+      const withScheme = (v: string) =>
+        /^(www\.|m\.)?(instagram|tiktok|youtube)\.com\//i.test(v) ? `https://${v}` : v;
       const normalized: PrefillCreator[] = creators.map((c) => {
-        if (typeof c === "string") return { url: c.trim(), platform: guessPlatform(c) };
-        return { url: c.handle.trim(), platform: c.platform ?? guessPlatform(c.handle) };
+        if (typeof c === "string") return { url: withScheme(c.trim()), platform: guessPlatform(c) };
+        return { url: withScheme(c.handle.trim()), platform: c.platform ?? guessPlatform(c.handle) };
       });
 
       if (normalized.length === 0) {
