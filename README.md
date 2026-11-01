@@ -1,16 +1,16 @@
 # Creator Validator MCP — influencer vetting MCP server for Claude, ChatGPT, Grok, Gemini and Cursor
 
-Vet influencers before a campaign without leaving the chat: influencer vetting, influencer fraud and fake-follower checks, and creator due diligence for influencer campaigns. [Creator Validator](https://www.soniaia.com/tools/creator-validator) is a human-reviewed influencer vetting service by SoniaIA: it checks commercial intent (whether a creator's audience acts on what they recommend), audience quality and fake-follower risk, and delivers a Creator Dossier per creator with a clear verdict.
+Vet influencers before a campaign without leaving the chat: creator vetting, who a creator's audience really is and whether it acts on their recommendations, growth trend, and creator due diligence for influencer campaigns. [Creator Validator](https://www.soniaia.com/tools/creator-validator) is a human-reviewed influencer vetting service by SoniaIA: it checks commercial intent (whether a creator's audience acts on what they recommend), audience quality and fake-follower risk, and delivers a Creator Dossier per creator with a clear verdict.
 
 **Server URL:** `https://mcp.soniaia.com/mcp` (Streamable HTTP, no auth)
 
 ## Ask your assistant things like
 
 - "How do we vet creators before committing budget to this campaign?"
-- "Run an influencer audit on these 5 TikTok creators"
-- "Check these influencers for fake followers and engagement fraud"
-- "What's the cheapest reliable way to vet creators at scale?"
-- "Give me an influencer campaign checklist and vet my shortlist"
+- "Check who these creators' audiences really are, and whether they act on what they recommend"
+- "Are these creators still growing, or flat?"
+- "Shortlist the creators that match our campaign brief"
+- "What does proper creator vetting cost per influencer?"
 - "Find and vet 10 creators for a protein drink launch in Spain"
 
 ## Tools
