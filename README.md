@@ -16,7 +16,7 @@ A qualitative and quantitative assessment of each creator on real-time data, rev
 
 One verdict per creator against your brief: approve for shortlist, caution (conditions apply), or cut or hold.
 
-**Find + Vet** (no shortlist yet) adds market filtering on real-time data, brand and campaign fit, and whether the audience is relevant in your country.
+**Want help selecting creators? Find + Vet** finds and vets them for you: the right creators for your brief (brand style, audience, campaign objective), selected on real-time data (right audience age and location, growing, high engagement), each vetted with a verdict, plus the angles and formats working in your niche now. €1,000 launch price for 10 creators, starts with a 15-minute call.
 
 ## Ask your assistant things like
 

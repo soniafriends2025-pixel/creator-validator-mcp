@@ -87,19 +87,21 @@ export const BOOKING_URL =
 export const FIND_VET = {
   priceEUR: 1000,
   creators: 10,
-  name_en: "Find + Vet My Shortlist (10 creators)",
-  name_es: "Find + Vet: buscamos y validamos tu shortlist (10 creadores)",
+  name_en: "Find + Vet: we find and vet your creators (10 creators)",
+  name_es: "Find + Vet: buscamos y validamos tus creadores (10 creadores)",
   includes_en:
-    "No shortlist yet? A 15-minute call with Sonia about your campaign. Then the market is filtered on real-time data: " +
-    "quality, fit with your brand and campaign, and where the audience really is (in a US test, 3,031 creators became 26). " +
-    "Each one goes through Creator Validator against your brief: who their audience is and what it actually does, with a " +
-    "verdict. Plus a guide to what is working right now in your niche, so you can adapt your content strategy to proven cases and negotiate better.",
+    "We find and vet the creators for you. A service that identifies the right creators for your brief (your brand " +
+    "style, the audience you want and your campaign objective) and vets each one before you spend on them. " +
+    "Found on real-time data: the right audience (age, location), growing, with high engagement. Vetted one by one " +
+    "through Creator Validator against your brief, with a clear verdict. Plus the angles and formats working in your " +
+    "niche right now. It starts with a 15-minute call with Sonia. In a US test, 3,031 creators became 26.",
   includes_es:
-    "¿Aún no tienes shortlist? Una llamada de 15 minutos con Sonia sobre tu campaña. Después filtramos el mercado con datos " +
-    "en tiempo real: calidad, encaje con tu marca y tu campaña, y dónde está de verdad la audiencia (en una prueba en EE. UU., " +
-    "de 3.031 creadores quedaron 26). Cada uno pasa por Creator Validator según tu brief: quién es su audiencia y qué hace de " +
-    "verdad, con un veredicto. Y recibes una guía de lo que está funcionando ahora en tu nicho, para adaptar tu estrategia de " +
-    "contenido a casos probados y negociar mejor.",
+    "Buscamos y validamos los creadores por ti. Un servicio que identifica los creadores adecuados para tu brief (el " +
+    "estilo de tu marca, la audiencia que buscas y el objetivo de tu campaña) y valida cada uno antes de que inviertas " +
+    "en ellos. Seleccionados con datos en tiempo real: la audiencia adecuada (edad, ubicación), en crecimiento y con " +
+    "alto engagement. Validados uno a uno con Creator Validator según tu brief, con un veredicto claro. Y además, los " +
+    "ángulos y formatos que funcionan ahora en tu nicho. Empieza con una llamada de 15 minutos con Sonia. En una " +
+    "prueba en EE. UU., de 3.031 creadores quedaron 26.",
 };
 
 // Verdict words — VERBATIM from the live page. Do not paraphrase.
