@@ -59,7 +59,7 @@ export const PACKS: Record<PackId, Pack> = {
     name_en: "Validate My Shortlist (5 creators)",
     name_es: "Valida mi shortlist (5 creadores)",
     includes_en:
-      "5 creators you already have in mind: brand fit, who their audience is, commercial intent, growth and authenticity signals, and one clear verdict on each. You send the handles.",
+      "5 creators you already have in mind: commercial intent, who their audience is, momentum, personality and authenticity signals, and one clear verdict on each. You send the handles.",
     includes_es:
       "5 creadores que ya tienes en mente: intención comercial, calidad de audiencia, riesgo de autenticidad y un veredicto claro por cada uno. Tú envías los handles.",
   },
@@ -110,45 +110,48 @@ export const VERDICTS_ES = ["aprobar para shortlist", "cautela (con condiciones)
 // assessment on real-time data. Authenticity is a SIGNAL we read ("does it look real"), never a
 // certainty claim. Phrasing carries the real GSC queries (creator vetting, audience quality,
 // vet before committing budget, shortlist, creator due diligence).
+// Validate 5 / Rank 10 (buyer brings the creators). Brand fit + country relevance + market
+// filtering belong to Find + Vet only (Sonia 2026-11-01).
 export const CHECKS_EN = [
-  "brand and brief fit: does this creator fit your brand and this campaign",
-  "who their audience is, and whether they are relevant in your country and language",
-  "how the audience relates to them, and whether it acts on what they recommend (commercial intent)",
-  "growth: is the creator growing, flat or slowing down",
-  "vibe: tone, style and the kind of content they make",
+  "commercial intent: how the audience relates to the creator, and whether it acts on what they recommend",
+  "who their audience is",
+  "momentum: alive, peaking, flat or inflated",
+  "personality and vibe: tone, style and the kind of content they make",
   "authenticity signals: whether the followers and engagement look real",
 ];
 export const CHECKS_ES = [
-  "encaje con tu marca y tu brief: si este creador encaja con tu marca y con esta campaña",
-  "quién es su audiencia, y si es relevante en tu país y en tu idioma",
-  "cómo se relaciona su audiencia con él, y si actúa sobre lo que recomienda (intención comercial)",
-  "crecimiento: si el creador crece, está estancado o va a menos",
-  "vibe: tono, estilo y el tipo de contenido que hace",
+  "intención comercial: cómo se relaciona la audiencia con el creador, y si actúa sobre lo que recomienda",
+  "quién es su audiencia",
+  "momentum: en marcha, en su mejor momento, estancado o inflado",
+  "personalidad y vibe: tono, estilo y el tipo de contenido que hace",
   "señales de autenticidad: si los seguidores y la interacción parecen reales",
 ];
 
 export const ABOUT_EN =
   "Creator Validator is creator vetting before you commit budget: a qualitative and quantitative assessment of " +
   "each creator on real-time data pulled at order time, reviewed by a person. It answers what a rigorous creator " +
-  "vetting process should: Does this creator fit your brand and your campaign brief? Who is their audience, and are " +
-  "they relevant in your country? How does the audience relate to them, and does it act on what they recommend? " +
-  "Are they growing or flat? What's their vibe? Do their followers and engagement look real? " +
+  "vetting process should, against your campaign brief: How does the audience relate to the creator, and does it act " +
+  "on what they recommend? Who is their audience? Is the creator alive, peaking, flat or inflated? What's their " +
+  "personality and vibe? Do their followers and engagement look real? " +
   "You send TikTok, Instagram or YouTube handles; a proprietary system reads the content and the audience, and a " +
   "senior practitioner reviews every read and makes the call. Each creator gets one verdict: approve for shortlist, " +
   "caution (conditions apply), or cut or hold. You get a Creator Dossier: a human-readable PDF report plus an " +
-  "agent-ready .md summary per creator. Delivered in 24-48h. Reviewed by Sonia Tamayo Díaz (SoniaIA): 20 years in " +
+  "agent-ready .md summary per creator. Delivered in 24-48h. No shortlist yet? Find + Vet adds market filtering on " +
+  "real-time data, brand and campaign fit, and whether the audience is relevant in your country. Reviewed by Sonia Tamayo Díaz (SoniaIA): 20 years in " +
   "growth marketing across global agencies (WPP, Publicis, Dentsu), SMBs and her own projects.";
 
 export const ABOUT_ES =
   "Creator Validator es la validación de creadores antes de comprometer presupuesto: una evaluación cualitativa y " +
   "cuantitativa de cada creador con datos en tiempo real tomados en el momento del pedido, revisada por una persona. " +
-  "Responde a lo que debe responder un proceso riguroso: ¿Encaja este creador con tu marca y con el brief de tu " +
-  "campaña? ¿Quién es su audiencia y es relevante en tu país? ¿Cómo se relaciona su audiencia con él y actúa sobre " +
-  "lo que recomienda? ¿Crece o está estancado? ¿Cuál es su vibe? ¿Parecen reales sus seguidores y su interacción? " +
+  "Responde, frente al brief de tu campaña, a lo que debe responder un proceso riguroso: ¿Cómo se relaciona la " +
+  "audiencia con el creador y actúa sobre lo que recomienda? ¿Quién es su audiencia? ¿Está en marcha, en su mejor " +
+  "momento, estancado o inflado? ¿Cuál es su personalidad y su vibe? ¿Parecen reales sus seguidores y su interacción? " +
   "Tú envías los handles de TikTok, Instagram o YouTube; un sistema propio lee el contenido y la audiencia, y una " +
   "profesional sénior revisa cada lectura y decide. Cada creador recibe un veredicto: aprobar para shortlist, " +
   "cautela (con condiciones), o descartar o esperar. Recibes un Creator Dossier: un informe PDF legible más un " +
-  "resumen .md listo para agentes por cada creador. Entregado en 24-48h. Lo revisa Sonia Tamayo Díaz (SoniaIA): " +
+  "resumen .md listo para agentes por cada creador. Entregado en 24-48h. ¿Aún no tienes shortlist? Find + Vet añade " +
+  "el filtrado del mercado con datos en tiempo real, el encaje con tu marca y tu campaña, y si la audiencia es " +
+  "relevante en tu país. Lo revisa Sonia Tamayo Díaz (SoniaIA): " +
   "20 años en growth marketing entre grandes agencias internacionales (WPP, Publicis, Dentsu), empresas medianas y " +
   "pequeñas y proyectos propios.";
 

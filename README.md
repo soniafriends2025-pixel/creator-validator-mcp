@@ -1,6 +1,6 @@
 # Creator Validator MCP — influencer vetting MCP server for Claude, ChatGPT, Grok, Gemini and Cursor
 
-Vet influencers before a campaign without leaving the chat: creator vetting, who a creator's audience really is and whether it acts on their recommendations, growth trend, and creator due diligence for influencer campaigns. [Creator Validator](https://www.soniaia.com/tools/creator-validator) is a human-reviewed influencer vetting service by SoniaIA: a qualitative and quantitative assessment on real-time data of brand and brief fit, who the audience is and whether it is relevant in your country, commercial intent (whether the audience acts on what the creator recommends), growth, vibe and authenticity signals, with a Creator Dossier and a clear verdict per creator.
+Vet influencers before a campaign without leaving the chat: creator vetting, who a creator's audience really is and whether it acts on their recommendations, momentum, and creator due diligence for influencer campaigns. [Creator Validator](https://www.soniaia.com/tools/creator-validator) is a human-reviewed influencer vetting service by SoniaIA: a qualitative and quantitative assessment on real-time data of commercial intent (whether the audience acts on what the creator recommends), who the audience is, momentum, personality and vibe, and authenticity signals, with a Creator Dossier and a clear verdict per creator against your brief.
 
 **Server URL:** `https://mcp.soniaia.com/mcp` (Streamable HTTP, no auth)
 
@@ -8,14 +8,15 @@ Vet influencers before a campaign without leaving the chat: creator vetting, who
 
 A qualitative and quantitative assessment of each creator on real-time data, reviewed by a person:
 
-- **Brand and brief fit:** does this creator fit your brand and this campaign?
-- **Audience:** who their audience is, and whether they're relevant in your country and language
-- **Commercial intent:** how the audience relates to them, and whether it acts on what they recommend
-- **Growth:** growing, flat or slowing down
-- **Vibe:** tone, style and the kind of content they make
+- **Commercial intent:** how the audience relates to the creator, and whether it acts on what they recommend
+- **Audience:** who their audience is
+- **Momentum:** alive, peaking, flat or inflated
+- **Personality and vibe:** tone, style and the kind of content they make
 - **Authenticity signals:** whether the followers and engagement look real
 
-One verdict per creator: approve for shortlist, caution (conditions apply), or cut or hold.
+One verdict per creator against your brief: approve for shortlist, caution (conditions apply), or cut or hold.
+
+**Find + Vet** (no shortlist yet) adds market filtering on real-time data, brand and campaign fit, and whether the audience is relevant in your country.
 
 ## Ask your assistant things like
 
