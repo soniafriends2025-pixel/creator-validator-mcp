@@ -111,19 +111,20 @@ export function createServer(): McpServer {
 
   server.tool(
     "start_order",
-    "Start an influencer vetting order for 5 or 10 creators the buyer already has. Give the creator handles or profile links and, optionally, the campaign brief (product, goal, market) and an email. Returns one link: the order form opens already filled in, the buyer pays on Stripe and submits. Also returns the direct Stripe link and a paste block as a fallback. Takes no payment and stores nothing. If the buyer has no creators yet, use book_find_and_vet instead.",
+    "Start an influencer vetting order for 5 or 10 creators the buyer already has. Needs the pack (5 or 10), the creator handles or profile links, the campaign brief (product, goal, market) and the buyer email: ask the buyer in the chat for anything missing, then call. Returns one link: the order form opens already filled in, the buyer pays on Stripe and the order goes in by itself. Also returns the direct Stripe link and a paste block as a fallback. Takes no payment and stores nothing. If the buyer has no creators yet, use book_find_and_vet instead.",
     {
       pack: z.union([z.number(), z.string().max(20)]).describe("Pack size: 5 or 10 (or 'validate5' / 'rank10')"),
       creators: z.array(z.union([z.string().max(300), creatorSchema])).max(50).describe("The creator handles or profile URLs (up to the pack size)"),
+      // Same required fields as the soniaia.com order form, so the agent asks for them in
+      // the chat and the form arrives complete (it then submits by itself after payment).
       brief: z
         .object({
-          product: z.string().max(1000).describe("Product or service being promoted"),
-          goal: z.string().max(1000).describe("What the campaign should achieve"),
-          market: z.string().max(200).describe("Market and content language, e.g. 'Spain, Spanish'"),
+          product: z.string().trim().min(1).max(1000).describe("Product or service being promoted"),
+          goal: z.string().trim().min(1).max(1000).describe("What the campaign should achieve"),
+          market: z.string().trim().min(1).max(200).describe("Market and content language, e.g. 'Spain, Spanish'"),
         })
-        .optional()
-        .describe("Optional campaign brief so the creators are reviewed for the intended use"),
-      email: z.string().max(254).email().optional().describe("Optional buyer email for the receipt + prefill"),
+        .describe("Campaign brief, so the creators are reviewed for the intended use. Ask the buyer if missing."),
+      email: z.string().trim().max(254).email().describe("Buyer email: where the Creator Dossier is sent. Ask the buyer if missing."),
       language: z.enum(["en", "es"]).optional(),
     },
     async ({ pack, creators, brief, email, language }) => {
@@ -182,7 +183,7 @@ export function createServer(): McpServer {
         "",
         "2) Press \"Pay & continue\" there and pay on Stripe, in the same browser tab.",
         "",
-        "3) Stripe brings you back to the form, still filled. Review it and submit.",
+        "3) Stripe brings you back and the order goes in by itself. You will see \"Order received\".",
         "",
         "If the link doesn't open the filled form, pay directly here and paste the block below into the form:",
         `   ${payEmail}`,
@@ -206,7 +207,7 @@ export function createServer(): McpServer {
         "",
         "2) Pulsa \"Pay & continue\" y paga en Stripe, en la misma pestaña del navegador.",
         "",
-        "3) Stripe te devuelve al formulario, todavía relleno. Revísalo y envíalo.",
+        "3) Stripe te devuelve a la web y el pedido se envía solo. Verás \"Order received\".",
         "",
         "Si el enlace no abre el formulario relleno, paga directamente aquí y pega el bloque de abajo en el formulario:",
         `   ${payEmail}`,

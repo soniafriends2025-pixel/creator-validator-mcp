@@ -53,15 +53,20 @@ async function main() {
 
   show(
     "start_order wrong pack size (es)",
-    await client.callTool({ name: "start_order", arguments: { pack: 7, creators: ["a", "b"], language: "es" } })
+    await client.callTool({ name: "start_order", arguments: { pack: 7, creators: ["a", "b"], brief: { product: "A plant protein brand", goal: "qualified visits", market: "Spain, Spanish" }, email: "agency@example.com", language: "es" } })
   );
 
   show(
     "start_order too many creators (en)",
     await client.callTool({
       name: "start_order",
-      arguments: { pack: 5, creators: ["1", "2", "3", "4", "5", "6"], language: "en" },
+      arguments: { pack: 5, creators: ["1", "2", "3", "4", "5", "6"], brief: { product: "A plant protein brand", goal: "qualified visits", market: "Spain, Spanish" }, email: "agency@example.com", language: "en" },
     })
+  );
+
+  show(
+    "start_order missing brief + email (agent must ask)",
+    await client.callTool({ name: "start_order", arguments: { pack: 5, creators: ["@a"], language: "en" } })
   );
 
   await client.close();
