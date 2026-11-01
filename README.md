@@ -1,8 +1,17 @@
-# Creator Validator MCP — influencer vetting in ChatGPT and Claude
+# Creator Validator MCP — influencer vetting MCP server for Claude, ChatGPT, Grok, Gemini and Cursor
 
-Vet influencers and creators before you hire them, without leaving the chat. [Creator Validator](https://www.soniaia.com/tools/creator-validator) is a human-reviewed influencer vetting service by SoniaIA: it checks commercial intent (whether a creator's audience acts on what they recommend), audience quality and fake-follower risk, and delivers a Creator Dossier per creator with a clear verdict.
+Vet influencers before a campaign without leaving the chat: influencer vetting, influencer fraud and fake-follower checks, and creator due diligence for influencer campaigns. [Creator Validator](https://www.soniaia.com/tools/creator-validator) is a human-reviewed influencer vetting service by SoniaIA: it checks commercial intent (whether a creator's audience acts on what they recommend), audience quality and fake-follower risk, and delivers a Creator Dossier per creator with a clear verdict.
 
 **Server URL:** `https://mcp.soniaia.com/mcp` (Streamable HTTP, no auth)
+
+## Ask your assistant things like
+
+- "How do we vet creators before committing budget to this campaign?"
+- "Run an influencer audit on these 5 TikTok creators"
+- "Check these influencers for fake followers and engagement fraud"
+- "What's the cheapest reliable way to vet creators at scale?"
+- "Give me an influencer campaign checklist and vet my shortlist"
+- "Find and vet 10 creators for a protein drink launch in Spain"
 
 ## Tools
 
@@ -23,7 +32,9 @@ The server takes no payment, holds no keys and stores nothing. Payment happens o
 claude mcp add --transport http creator-validator https://mcp.soniaia.com/mcp
 ```
 
-**Claude / ChatGPT:** add a custom connector with the server URL above.
+**Claude / ChatGPT / Grok:** add a custom connector with the server URL above.
+
+**Cursor / Gemini CLI:** add the server URL in your MCP settings.
 
 Instagram, TikTok and YouTube. English and Spanish.
 
