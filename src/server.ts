@@ -27,7 +27,10 @@ const asLang = (v: unknown): Lang => (String(v).toLowerCase().startsWith("es") ?
 // ---- lightweight in-process rate limit (placeholder) --------------------------------
 // The plan calls for a per-IP cap. Over stdio there is no IP, so this is a simple
 // per-process token bucket; the real per-IP limit belongs on the hosted HTTP transport.
-const RATE = { max: 30, windowMs: 60_000, hits: [] as number[] };
+// Hosted (Vercel): the per-IP limit lives in the Vercel Firewall (300/min per IP on /mcp). A global
+// in-process bucket there would throttle ALL users at once (Claude/ChatGPT share egress IPs), so it is
+// only active for the local stdio build.
+const RATE = { max: process.env.VERCEL ? Number.POSITIVE_INFINITY : 30, windowMs: 60_000, hits: [] as number[] };
 function rateOk(): boolean {
   const now = Date.now();
   RATE.hits = RATE.hits.filter((t) => now - t < RATE.windowMs);
