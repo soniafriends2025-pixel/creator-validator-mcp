@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.log
+internal/
+.vercel/
+CV_MCP_EXPLICACION.html
+README_TEST_FOR_SONIA.md
+test/
