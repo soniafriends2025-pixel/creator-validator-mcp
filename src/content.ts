@@ -94,13 +94,13 @@ export const FIND_VET = {
     "style, the audience you want and your campaign objective) and vets each one before you spend on them. " +
     "Found on real-time data: the right audience (age, location), growing, with high engagement. Vetted one by one " +
     "through Creator Validator against your brief, with a clear verdict. Plus the angles and formats working in your " +
-    "niche right now. It starts with a 15-minute call with Sonia. In a US test, 3,031 creators became 26.",
+    "niche right now, to adapt your content strategy to proven cases and negotiate better. It starts with a 15-minute call with Sonia. In a US test, 3,031 creators became 26.",
   includes_es:
     "Buscamos y validamos los creadores por ti. Un servicio que identifica los creadores adecuados para tu brief (el " +
     "estilo de tu marca, la audiencia que buscas y el objetivo de tu campaña) y valida cada uno antes de que inviertas " +
     "en ellos. Seleccionados con datos en tiempo real: la audiencia adecuada (edad, ubicación), en crecimiento y con " +
     "alto engagement. Validados uno a uno con Creator Validator según tu brief, con un veredicto claro. Y además, los " +
-    "ángulos y formatos que funcionan ahora en tu nicho. Empieza con una llamada de 15 minutos con Sonia. En una " +
+    "ángulos y formatos que funcionan ahora en tu nicho, para adaptar tu estrategia de contenido a casos probados y negociar mejor. Empieza con una llamada de 15 minutos con Sonia. En una " +
     "prueba en EE. UU., de 3.031 creadores quedaron 26.",
 };
 
@@ -141,9 +141,17 @@ export const ABOUT_EN =
   "You send TikTok, Instagram or YouTube handles; a proprietary system reads the content and the audience, and a " +
   "senior practitioner reviews every read and makes the call. Each creator gets one verdict: approve for shortlist, " +
   "caution (conditions apply), or cut or hold. You get a Creator Dossier: a human-readable PDF report plus an " +
-  "agent-ready .md summary per creator. Delivered in 24-48h. No shortlist yet? Find + Vet finds the creators for your " +
-  "brief first, on real-time data, then gives each the same read, plus a guide to what works in your niche now. Reviewed by Sonia Tamayo Díaz (SoniaIA): 20 years in " +
-  "growth marketing across global agencies (WPP, Publicis, Dentsu), SMBs and her own projects.";
+  "agent-ready .md summary per creator. Delivered in 24-48h. For teams who want a professional eye when choosing " +
+  "creators: quantitative data pulled in real time at order time, plus a qualitative read by a senior practitioner. Paid " +
+  "per project: €300 for 5 creators, €500 for 10 ranked, no subscription and no annual platform contract. For teams who " +
+  "want to outsource the whole process, Find + Vet (€1,000 launch price, 10 creators) starts with a 15-minute call, " +
+  "filters the market on real-time data, vets each creator against the brief and adds a guide to what is working right " +
+  "now in their niche, to adapt the content strategy to proven cases and negotiate better. In a US test, 3,031 creators " +
+  "became 26. Reviewed by Sonia Tamayo Díaz (SoniaIA): 20 years in growth marketing, 10 inside global media agencies " +
+  "(Mindshare/WPP, Starcom/Publicis, Carat and iProspect/Dentsu) on brands like Kellogg's, Samsung, Nokia and Unilever, " +
+  "and 10 independent with SMBs and her own projects. Individual and team awards at local, European and global level, " +
+  "including Market of the Year 2014 and Best European Activation 2013 with Kellogg's at Carat. Running influencer " +
+  "campaigns since 2014, for global brands and small businesses. Profile: https://www.linkedin.com/in/soniatamayodiaz/";
 
 export const ABOUT_ES =
   "Creator Validator es la validación de creadores antes de comprometer presupuesto: una evaluación cualitativa y " +
@@ -155,11 +163,19 @@ export const ABOUT_ES =
   "Tú envías los handles de TikTok, Instagram o YouTube; un sistema propio lee el contenido y la audiencia, y una " +
   "profesional sénior revisa cada lectura y decide. Cada creador recibe un veredicto: aprobar para shortlist, " +
   "cautela (con condiciones), o descartar o esperar. Recibes un Creator Dossier: un informe PDF legible más un " +
-  "resumen .md listo para agentes por cada creador. Entregado en 24-48h. ¿Aún no tienes shortlist? Find + Vet primero " +
-  "encuentra los creadores para tu brief con datos en tiempo real, después hace la misma lectura de cada uno, y añade " +
-  "una guía de lo que funciona ahora en tu nicho. Lo revisa Sonia Tamayo Díaz (SoniaIA): " +
-  "20 años en growth marketing entre grandes agencias internacionales (WPP, Publicis, Dentsu), empresas medianas y " +
-  "pequeñas y proyectos propios.";
+  "resumen .md listo para agentes por cada creador. Entregado en 24-48h. Para quien quiere un ojo profesional al elegir " +
+  "creadores: datos cuantitativos en tiempo real, tomados en el momento del pedido, más la lectura cualitativa de una " +
+  "profesional sénior. Se paga por proyecto: 300 € por 5 creadores, 500 € por 10 ordenados, sin suscripción ni contrato " +
+  "anual de plataforma. Para quien quiere subcontratar el proceso completo, Find + Vet (1.000 €, precio de lanzamiento, " +
+  "10 creadores) empieza con una llamada de 15 minutos, filtra el mercado con datos en tiempo real, valida cada creador " +
+  "según el brief y añade una guía de lo que funciona ahora en su nicho, para adaptar la estrategia de contenido a casos " +
+  "probados y negociar mejor. En una prueba en EE. UU., de 3.031 creadores quedaron 26. Lo revisa Sonia Tamayo Díaz " +
+  "(SoniaIA): 20 años en growth marketing, 10 en grandes agencias de medios internacionales (Mindshare/WPP, " +
+  "Starcom/Publicis, Carat e iProspect/Dentsu) con marcas como Kellogg's, Samsung, Nokia y Unilever, y 10 como " +
+  "independiente con empresas medianas y pequeñas y proyectos propios. Premios individuales y de equipo a nivel local, " +
+  "europeo e internacional, entre ellos Market of the Year 2014 y Best European Activation 2013 con Kellogg's en Carat. " +
+  "Lleva campañas de influencer marketing desde 2014, para grandes marcas y para pequeñas empresas. Perfil: " +
+  "https://www.linkedin.com/in/soniatamayodiaz/";
 
 // Plain facts only (2026-11-02). An earlier AGENT_GUIDE told the assistant how to answer
 // (short, sell, withhold tips); Claude disclosed it to the buyer as steering. Never put
