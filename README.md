@@ -45,7 +45,7 @@ One-off per project, no subscription. Instagram, TikTok and YouTube.
 | `start_order` | Give the creator handles or profile links, the brief and the buyer email (the assistant confirms it first); returns one link to the soniaia.com order form already filled in. The buyer checks it, pays on Stripe in the same tab, then reviews and submits |
 | `book_find_and_vet` | No shortlist yet? Returns the booking link for a 15-minute call and a pre-written email with the brief |
 
-The server takes no payment, holds no keys and stores nothing. Payment happens on Stripe; the order travels inside the Stripe payment and is submitted by soniaia.com once paid. Price is set by soniaia.com from the pack (Validate 5 €300, Rank 10 €500), never by the link.
+The server takes no payment, holds no keys and stores nothing. Payment happens on Stripe, on the same checkout every soniaia.com buyer uses. After paying, the buyer returns to the prefilled order form in the same tab, reviews it and submits it. Order emails go to the email used to pay on Stripe. Price is fixed by the Stripe checkout for each pack (Validate 5 €300, Rank 10 €500), never by the link.
 
 ## Connect
 

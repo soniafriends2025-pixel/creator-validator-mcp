@@ -111,7 +111,7 @@ export function createServer(): McpServer {
 
   server.tool(
     "start_order",
-    "Start an influencer vetting order for creators the buyer already has. Needs the pack, the creator handles or profile links, the campaign brief (product, goal, market) and the buyer email: ask the buyer in the chat for anything missing. Pack rule: more than 5 creators means pack 10 (Rank 10, €500); 5 or fewer means pack 5 (Validate 5, €300) unless the buyer wants the ranked 10-creator pack. BEFORE calling, repeat the email back to the buyer and wait for them to confirm it (the Creator Dossier is delivered there). Returns one link to the soniaia.com order form already filled in: the buyer checks it, pays with the normal Stripe checkout, returns in the same tab and clicks Submit. Takes no payment itself and stores nothing. If the buyer has no creators yet, use book_find_and_vet instead.",
+    "Start an influencer vetting order for creators the buyer already has. Needs the pack, the creator handles or profile links, the campaign brief (product, goal, market) and the buyer email: ask the buyer in the chat for anything missing. Pack rule: more than 5 creators means pack 10 (Rank 10, €500); 5 or fewer means pack 5 (Validate 5, €300) unless the buyer wants the ranked 10-creator pack. BEFORE calling, repeat the email back to the buyer and wait for them to confirm it (the Creator Dossier is delivered there). Returns one link to the soniaia.com order form already filled in: the buyer checks it, pays with the normal Stripe checkout, returns in the same tab and clicks Submit. Order emails go to the email used to pay on Stripe. Takes no payment itself and stores nothing. If the buyer has no creators yet, use book_find_and_vet instead.",
     {
       pack: z.union([z.number(), z.string().max(20)]).describe("Pack size: 5 or 10 (or 'validate5' / 'rank10')"),
       creators: z.array(z.union([z.string().max(300), creatorSchema])).max(50).describe("The creator handles or profile URLs (up to the pack size)"),
@@ -187,7 +187,7 @@ export function createServer(): McpServer {
         "",
         "3) After paying you come back to your order form, still filled in. Review it and click Submit.",
         "",
-        `You'll get emails at ${email} with your order link and your order confirmation. If something doesn't arrive within a few minutes, check your spam or write to ${CONTACT}. If the form ever comes back empty, paste the order below into it.`,
+        `Order emails go to the email you use to pay on Stripe (use ${email} so the Creator Dossier lands there). If something doesn't arrive within a few minutes, check your spam or write to ${CONTACT}. If the form ever comes back empty, paste the order below into it.`,
         "",
         "Your order:",
         pasteBlock
@@ -210,7 +210,7 @@ export function createServer(): McpServer {
         "",
         "3) Después de pagar vuelves a tu formulario, todavía relleno. Revísalo y pulsa Submit.",
         "",
-        `Recibirás emails en ${email} con el enlace de tu pedido y la confirmación. Si algo no llega en unos minutos, mira en spam o escribe a ${CONTACT}. Si el formulario aparece vacío, pega en él el pedido de abajo.`,
+        `Los emails del pedido llegan al email con el que pagues en Stripe (usa ${email} para que el Creator Dossier llegue ahí). Si algo no llega en unos minutos, mira en spam o escribe a ${CONTACT}. Si el formulario aparece vacío, pega en él el pedido de abajo.`,
         "",
         "Tu pedido:",
         pasteBlock
