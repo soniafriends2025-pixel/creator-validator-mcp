@@ -38,7 +38,7 @@ function rateOk(): boolean {
 const text = (s: string) => ({ content: [{ type: "text" as const, text: s }] });
 
 export function createServer(): McpServer {
-  const server = new McpServer({ name: "creator-validator", version: "0.1.0" });
+  const server = new McpServer({ name: "creator-validator", title: "Creator Validator by SoniaIA", version: "0.1.0", websiteUrl: "https://www.soniaia.com/tools/creator-validator" } as any);
 
   // ---- 1) about_creator_validator -----------------------------------------------------
   server.tool(
