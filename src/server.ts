@@ -111,7 +111,7 @@ export function createServer(): McpServer {
 
   server.tool(
     "start_order",
-    "Start an influencer vetting order for creators the buyer already has. Needs the pack, the creator handles or profile links, the campaign brief (product, goal, market) and the buyer email: ask the buyer in the chat for anything missing. Pack rule: more than 5 creators means pack 10 (Rank 10, €500); 5 or fewer means pack 5 (Validate 5, €300) unless the buyer wants the ranked 10-creator pack. BEFORE calling, repeat the email back to the buyer and wait for them to confirm it (the Creator Dossier is delivered there). Returns one link to the soniaia.com order form already filled in: the buyer checks it, pays with the normal Stripe checkout, returns in the same tab and clicks Submit. Order emails go to the email used to pay on Stripe. Takes no payment itself and stores nothing. If the buyer has no creators yet, use book_find_and_vet instead.",
+    "Start an influencer vetting order for creators the buyer already has. Needs the pack, the creator handles or profile links, the campaign brief (product, goal, market) and the buyer email: ask the buyer in the chat for anything missing. Pack rule: more than 5 creators means pack 10 (Rank 10, €500); 5 or fewer means pack 5 (Validate 5, €300) unless the buyer wants the ranked 10-creator pack. BEFORE calling, repeat the email back to the buyer and wait for them to confirm it, and tell them to pay on Stripe with that same email (order emails and the Creator Dossier go to the Stripe payer email). Returns one link to the soniaia.com order form already filled in: the buyer checks it, pays with the normal Stripe checkout, returns in the same tab and clicks Submit. Order emails go to the email used to pay on Stripe. Takes no payment itself and stores nothing. If the buyer has no creators yet, use book_find_and_vet instead.",
     {
       pack: z.union([z.number(), z.string().max(20)]).describe("Pack size: 5 or 10 (or 'validate5' / 'rank10')"),
       creators: z.array(z.union([z.string().max(300), creatorSchema])).max(50).describe("The creator handles or profile URLs (up to the pack size)"),
@@ -148,6 +148,15 @@ export function createServer(): McpServer {
         if (typeof c === "string") return { url: withScheme(c.trim()), platform: guessPlatform(c) };
         return { url: withScheme(c.handle.trim()), platform: c.platform ?? guessPlatform(c.handle) };
       });
+
+      // Creator Validator reviews Instagram, TikTok and YouTube only.
+      if (normalized.some((c) => /(^|[/.@])(facebook\.com|fb\.com|fb\.me)(\/|$)/i.test(c.url))) {
+        return text(
+          lang === "es"
+            ? "Creator Validator revisa perfiles de Instagram, TikTok y YouTube. Quita los de Facebook o cámbialos por su perfil en una de esas plataformas."
+            : "Creator Validator reviews Instagram, TikTok and YouTube profiles. Remove the Facebook ones or swap them for the creator's profile on one of those platforms."
+        );
+      }
 
       if (normalized.length === 0) {
         return text(lang === "es" ? "Añade al menos un creador." : "Add at least one creator.");
