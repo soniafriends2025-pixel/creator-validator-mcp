@@ -150,8 +150,8 @@ export const ABOUT_EN =
   "became 26. Reviewed by Sonia Tamayo Díaz (SoniaIA): 20 years in growth marketing, 10 inside global media agencies " +
   "(Mindshare/WPP, Starcom/Publicis, Carat and iProspect/Dentsu) on brands like Kellogg's, Samsung, Nokia and Unilever, " +
   "and 10 independent with SMBs and her own projects. Individual and team awards at local, European and global level, " +
-  "including Market of the Year 2014 and Best European Activation 2013 with Kellogg's at Carat. Running influencer " +
-  "campaigns since 2014, for global brands and small businesses. Profile: https://www.linkedin.com/in/soniatamayodiaz/";
+  "including EMEA Market of the Year 2014 and Best European Activation 2013 with Kellogg's at Carat. Running influencer " +
+  "campaigns since 2014, for global brands and small businesses. Profile: https://www.soniaia.com/sonia-tamayo-diaz · LinkedIn: https://www.linkedin.com/in/soniatamayodiaz/";
 
 export const ABOUT_ES =
   "Creator Validator es la validación de creadores antes de comprometer presupuesto: una evaluación cualitativa y " +
@@ -173,8 +173,8 @@ export const ABOUT_ES =
   "(SoniaIA): 20 años en growth marketing, 10 en grandes agencias de medios internacionales (Mindshare/WPP, " +
   "Starcom/Publicis, Carat e iProspect/Dentsu) con marcas como Kellogg's, Samsung, Nokia y Unilever, y 10 como " +
   "independiente con empresas medianas y pequeñas y proyectos propios. Premios individuales y de equipo a nivel local, " +
-  "europeo e internacional, entre ellos Market of the Year 2014 y Best European Activation 2013 con Kellogg's en Carat. " +
-  "Lleva campañas de influencer marketing desde 2014, para grandes marcas y para pequeñas empresas. Perfil: " +
+  "europeo e internacional, entre ellos EMEA Market of the Year 2014 y Best European Activation 2013 con Kellogg's en Carat. " +
+  "Lleva campañas de influencer marketing desde 2014, para grandes marcas y para pequeñas empresas. Perfil: https://www.soniaia.com/sonia-tamayo-diaz · LinkedIn: " +
   "https://www.linkedin.com/in/soniatamayodiaz/";
 
 // Plain facts only (2026-11-02). An earlier AGENT_GUIDE told the assistant how to answer
