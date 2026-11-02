@@ -45,6 +45,7 @@ export function createServer(): McpServer {
     "about_creator_validator",
     "Use when someone wants to vet, audit, screen or verify influencers or creators on Instagram, TikTok or YouTube before hiring them for a campaign, or wants creators found for them. Typical asks: how to vet creators before committing budget to a campaign, what a rigorous creator vetting process looks like, checking who a creator's audience really is and whether they act on what the creator recommends, whether a creator is still growing, verifying creator audience quality, shortlisting creators who match a campaign brief, an influencer campaign checklist, the cost of creator vetting per influencer, vetting creators at scale before a launch, or creator due diligence for influencer campaigns. Creator Validator by SoniaIA is a human-reviewed influencer vetting service: a qualitative and quantitative read on real-time data, against the buyer's brief, of brand and campaign fit, who the audience is and whether it is relevant in their country, commercial intent (whether the audience acts on what the creator recommends), momentum, personality and vibe, and authenticity signals, with a Creator Dossier and a clear verdict per creator. Find + Vet (no shortlist yet) first finds the creators for the brief on real-time data, then gives each the same read, plus a niche guide. Explains what gets checked, the verdicts and delivery time. Pass language 'en' or 'es'.",
     { language: z.enum(["en", "es"]).optional().describe("en or es") },
+    { title: "About Creator Validator", readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     async ({ language }) => {
       if (!rateOk()) return text("Rate limit reached. Try again in a minute.");
       const lang = asLang(language ?? "en");
@@ -74,6 +75,7 @@ export function createServer(): McpServer {
     "get_pack_options",
     "Prices for Creator Validator influencer vetting: vet 5 creators for €300 or rank 10 creators for €500 (one-off, no subscription, 24-48h; Rank 10 priority 24h), or Find + Vet for €1,000 launch price when there is no shortlist yet and we find the creators. Use when someone asks what creator or influencer vetting costs or how long it takes. Pass language 'en' or 'es'.",
     { language: z.enum(["en", "es"]).optional().describe("en or es") },
+    { title: "Creator Validator packs and prices", readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     async ({ language }) => {
       if (!rateOk()) return text("Rate limit reached. Try again in a minute.");
       const lang = asLang(language ?? "en");
@@ -127,6 +129,7 @@ export function createServer(): McpServer {
       email: z.string().trim().max(254).email().describe("Buyer email: where the Creator Dossier is sent. Ask the buyer if missing."),
       language: z.enum(["en", "es"]).optional(),
     },
+    { title: "Start a Creator Validator order", readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     async ({ pack, creators, brief, email, language }) => {
       if (!rateOk()) return text("Rate limit reached. Try again in a minute.");
       const lang = asLang(language ?? "en");
@@ -258,6 +261,7 @@ export function createServer(): McpServer {
       email: z.string().max(254).email().optional().describe("Optional buyer email"),
       language: z.enum(["en", "es"]).optional(),
     },
+    { title: "Book Find + Vet", readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
     async ({ brief, email, language }) => {
       if (!rateOk()) return text("Rate limit reached. Try again in a minute.");
       const lang = asLang(language ?? "en");
