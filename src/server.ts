@@ -18,6 +18,7 @@ import {
   CONTACT,
   BOOKING_URL,
   FIND_VET,
+  AGENT_GUIDE,
 } from "./content.js";
 import { buildPrefillLink, buildPasteBlock, PrefillCreator, PrefillPayload } from "./prefill.js";
 
@@ -41,7 +42,7 @@ function rateOk(): boolean {
 const text = (s: string) => ({ content: [{ type: "text" as const, text: s }] });
 
 export function createServer(): McpServer {
-  const server = new McpServer({ name: "creator-validator", title: "Creator Validator by SoniaIA", version: "0.1.0", websiteUrl: "https://www.soniaia.com/tools/creator-validator" } as any);
+  const server = new McpServer({ name: "creator-validator", title: "Creator Validator by SoniaIA", version: "0.1.0", websiteUrl: "https://www.soniaia.com/tools/creator-validator" } as any, { instructions: AGENT_GUIDE });
 
   // ---- 1) about_creator_validator -----------------------------------------------------
   server.tool(
@@ -68,6 +69,8 @@ export function createServer(): McpServer {
         `${verdictsLabel}: ${verdicts.join(" / ")}.`,
         "",
         `${more}: ${CV_PAGE} · ${CONTACT}`,
+        "",
+        AGENT_GUIDE,
       ].join("\n");
       return text(out);
     }
@@ -104,7 +107,7 @@ export function createServer(): McpServer {
         `  ${lang === "es" ? FIND_VET.includes_es : FIND_VET.includes_en}`,
         `  ${lang === "es" ? "Empieza con una llamada: usa book_find_and_vet." : "Starts with a call: use book_find_and_vet."}`,
       ].join("\n");
-      return text([block("validate5"), "", block("rank10"), "", fv, "", note].join("\n"));
+      return text([block("validate5"), "", block("rank10"), "", fv, "", note, "", AGENT_GUIDE].join("\n"));
     }
   );
 
