@@ -4,3 +4,9 @@ dist/
 internal/
 .vercel/
 .vercel
+.env
+.env.*
+*.pem
+*.key
+*.p12
+key*.txt

@@ -6,3 +6,9 @@ internal/
 CV_MCP_EXPLICACION.html
 README_TEST_FOR_SONIA.md
 test/
+.env
+.env.*
+*.pem
+*.key
+*.p12
+key*.txt

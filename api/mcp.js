@@ -11,6 +11,8 @@ const MAX_BODY_BYTES = 64 * 1024; // tool calls are tiny; refuse anything bigger
 async function readCapped(request) {
   if (!request.body) return new Uint8Array(0);
   const reader = request.body.getReader();
+  // Slow-body guard: give up after 5s so a trickling client can't hold the function open.
+  const deadline = setTimeout(() => reader.cancel().catch(() => {}), 5000);
   const chunks = [];
   let total = 0;
   for (;;) {
@@ -23,6 +25,7 @@ async function readCapped(request) {
     }
     chunks.push(value);
   }
+  clearTimeout(deadline);
   const out = new Uint8Array(total);
   let off = 0;
   for (const c of chunks) {

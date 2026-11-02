@@ -130,7 +130,8 @@ export function createServer(): McpServer {
       language: z.enum(["en", "es"]).optional(),
     },
     { title: "Start a Creator Validator order", readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
-    async ({ pack, creators, brief, email, language }) => {
+    async ({ pack, creators, brief: rawBrief, email, language }) => {
+      const brief = { product: cleanText(rawBrief.product), goal: cleanText(rawBrief.goal), market: cleanText(rawBrief.market) };
       if (!rateOk()) return text("Rate limit reached. Try again in a minute.");
       const lang = asLang(language ?? "en");
 
@@ -148,8 +149,8 @@ export function createServer(): McpServer {
       const withScheme = (v: string) =>
         /^(www\.|m\.)?(instagram|tiktok|youtube)\.com\//i.test(v) ? `https://${v}` : v;
       const normalized: PrefillCreator[] = creators.map((c) => {
-        if (typeof c === "string") return { url: withScheme(c.trim()), platform: guessPlatform(c) };
-        return { url: withScheme(c.handle.trim()), platform: c.platform ?? guessPlatform(c.handle) };
+        if (typeof c === "string") return { url: withScheme(cleanHandle(c)), platform: guessPlatform(c) };
+        return { url: withScheme(cleanHandle(c.handle)), platform: c.platform ?? guessPlatform(c.handle) };
       });
 
       // Creator Validator reviews Instagram, TikTok and YouTube only.
@@ -237,6 +238,15 @@ export function createServer(): McpServer {
     }
   );
 
+  // Buyer-supplied text goes back into the assistant's context: strip control characters
+  // and line breaks so a handle or brief field can't smuggle instructions as new lines.
+  function cleanText(v: string): string {
+    return v.replace(/[\u0000-\u001F\u007F-\u009F\u2028\u2029]+/g, " ").replace(/\s{2,}/g, " ").trim();
+  }
+  function cleanHandle(v: string): string {
+    return cleanText(v).replace(/\s+/g, "");
+  }
+
   function guessPlatform(s: string): PrefillCreator["platform"] {
     const v = s.toLowerCase();
     if (v.includes("tiktok")) return "TikTok";
@@ -262,7 +272,10 @@ export function createServer(): McpServer {
       language: z.enum(["en", "es"]).optional(),
     },
     { title: "Book Find + Vet", readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: false },
-    async ({ brief, email, language }) => {
+    async ({ brief: rawBrief, email, language }) => {
+      const brief = rawBrief
+        ? { ...rawBrief, product: cleanText(rawBrief.product), goal: cleanText(rawBrief.goal), market: cleanText(rawBrief.market), ...(rawBrief.platforms ? { platforms: cleanText(rawBrief.platforms) } : {}) }
+        : undefined;
       if (!rateOk()) return text("Rate limit reached. Try again in a minute.");
       const lang = asLang(language ?? "en");
       const es_ = lang === "es";
