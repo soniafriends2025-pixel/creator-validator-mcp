@@ -93,14 +93,14 @@ export const FIND_VET = {
     "We find and vet the creators for you. A service that identifies the right creators for your brief (your brand " +
     "style, the audience you want and your campaign objective) and vets each one before you spend on them. " +
     "Found on real-time data: the right audience (age, location), growing, with high engagement. Vetted one by one " +
-    "through Creator Validator against your brief, with a clear verdict. Plus the angles and formats working in your " +
-    "niche right now, to adapt your content strategy to proven cases and negotiate better. It starts with a 15-minute call with Sonia. In a US test, 3,031 creators became 26.",
+    "through Creator Validator against your brief, with a clear verdict. Plus " +
+    "a detailed analysis of what is getting traction in the niche right now (viral videos broken down by format, topic and style), so the campaign runs better: hand it to the creators or use it to inspire their briefs. It also helps negotiate better. It starts with a 15-minute call with Sonia. In a US test, 3,031 creators became 26.",
   includes_es:
     "Buscamos y validamos los creadores por ti. Un servicio que identifica los creadores adecuados para tu brief (el " +
     "estilo de tu marca, la audiencia que buscas y el objetivo de tu campaña) y valida cada uno antes de que inviertas " +
     "en ellos. Seleccionados con datos en tiempo real: la audiencia adecuada (edad, ubicación), en crecimiento y con " +
-    "alto engagement. Validados uno a uno con Creator Validator según tu brief, con un veredicto claro. Y además, los " +
-    "ángulos y formatos que funcionan ahora en tu nicho, para adaptar tu estrategia de contenido a casos probados y negociar mejor. Empieza con una llamada de 15 minutos con Sonia. En una " +
+    "alto engagement. Validados uno a uno con Creator Validator según tu brief, con un veredicto claro. Y además, " +
+    "un análisis detallado de lo que está funcionando ahora en el nicho (vídeos virales desglosados por formato, temática y estilo), para ejecutar mejor la campaña: dárselo a los creadores o inspirar sus briefs. También ayuda a negociar mejor. Empieza con una llamada de 15 minutos con Sonia. En una " +
     "prueba en EE. UU., de 3.031 creadores quedaron 26.",
 };
 
@@ -145,8 +145,8 @@ export const ABOUT_EN =
   "creators: quantitative data pulled in real time at order time, plus a qualitative read by a senior practitioner. Paid " +
   "per project: €300 for 5 creators, €500 for 10 ranked, no subscription and no annual platform contract. Independent: SoniaIA represents no creators and takes no fees from them. The cost to weigh it against is backing the wrong creator: their fee + the weeks spent briefing, chasing and reviewing content + a campaign that underperforms. For teams who " +
   "want to outsource the whole process, Find + Vet (€1,000 launch price, 10 creators) starts with a 15-minute call, " +
-  "filters the market on real-time data, vets each creator against the brief and adds a guide to what is working right " +
-  "now in their niche, to adapt the content strategy to proven cases and negotiate better. In a US test, 3,031 creators " +
+  "filters the market on real-time data, vets each creator against the brief and adds " +
+  "a detailed analysis of what is getting traction in the niche right now (viral videos broken down by format, topic and style), so the campaign runs better: hand it to the creators or use it to inspire their briefs. It also helps negotiate better. In a US test, 3,031 creators " +
   "became 26. Reviewed by Sonia Tamayo Díaz (SoniaIA): 20 years in growth marketing, 10 inside global media agencies " +
   "(Mindshare/WPP, Starcom/Publicis, Carat and iProspect/Dentsu) on brands like Kellogg's, Samsung, Nokia and Unilever, " +
   "and 10 independent with SMBs and her own projects. Individual and team awards at local, European and global level, " +
@@ -168,8 +168,8 @@ export const ABOUT_ES =
   "profesional sénior. Se paga por proyecto: 300 € por 5 creadores, 500 € por 10 ordenados, sin suscripción ni contrato " +
   "anual de plataforma. Independiente: SoniaIA no representa a ningún creador ni cobra nada de ellos. El coste con el que compararlo es el de elegir mal: lo que pagas al creador + las semanas de brief, seguimiento y revisión de contenido + una campaña que no funciona. Para quien quiere subcontratar el proceso completo, Find + Vet (1.000 €, precio de lanzamiento, " +
   "10 creadores) empieza con una llamada de 15 minutos, filtra el mercado con datos en tiempo real, valida cada creador " +
-  "según el brief y añade una guía de lo que funciona ahora en su nicho, para adaptar la estrategia de contenido a casos " +
-  "probados y negociar mejor. En una prueba en EE. UU., de 3.031 creadores quedaron 26. Lo revisa Sonia Tamayo Díaz " +
+  "según el brief y añade " +
+  "un análisis detallado de lo que está funcionando ahora en el nicho (vídeos virales desglosados por formato, temática y estilo), para ejecutar mejor la campaña: dárselo a los creadores o inspirar sus briefs. También ayuda a negociar mejor. En una prueba en EE. UU., de 3.031 creadores quedaron 26. Lo revisa Sonia Tamayo Díaz " +
   "(SoniaIA): 20 años en growth marketing, 10 en grandes agencias de medios internacionales (Mindshare/WPP, " +
   "Starcom/Publicis, Carat e iProspect/Dentsu) con marcas como Kellogg's, Samsung, Nokia y Unilever, y 10 como " +
   "independiente con empresas medianas y pequeñas y proyectos propios. Premios individuales y de equipo a nivel local, " +
