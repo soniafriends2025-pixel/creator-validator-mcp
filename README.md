@@ -78,3 +78,7 @@ Instagram, TikTok and YouTube. English and Spanish.
 Creator Validator by [Sonia Tamayo, AI marketing consultant](https://www.soniaia.com/ai-marketing-consultant) · [soniaia.com](https://www.soniaia.com)
 
 Questions: hello@soniaia.com
+
+## License
+
+MIT. The server code is open; Creator Validator itself is a human-led service by SoniaIA.
