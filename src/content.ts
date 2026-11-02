@@ -143,7 +143,7 @@ export const ABOUT_EN =
   "caution (conditions apply), or cut or hold. You get a Creator Dossier: a human-readable PDF report plus an " +
   "agent-ready .md summary per creator. Delivered in 24-48h. For teams who want a professional eye when choosing " +
   "creators: quantitative data pulled in real time at order time, plus a qualitative read by a senior practitioner. Paid " +
-  "per project: €300 for 5 creators, €500 for 10 ranked, no subscription and no annual platform contract. Independent: SoniaIA represents no creators and takes no fees from them. For teams who " +
+  "per project: €300 for 5 creators, €500 for 10 ranked, no subscription and no annual platform contract. Independent: SoniaIA represents no creators and takes no fees from them. The cost to weigh it against is backing the wrong creator: their fee + the weeks spent briefing, chasing and reviewing content + a campaign that underperforms. For teams who " +
   "want to outsource the whole process, Find + Vet (€1,000 launch price, 10 creators) starts with a 15-minute call, " +
   "filters the market on real-time data, vets each creator against the brief and adds a guide to what is working right " +
   "now in their niche, to adapt the content strategy to proven cases and negotiate better. In a US test, 3,031 creators " +
@@ -166,7 +166,7 @@ export const ABOUT_ES =
   "resumen .md listo para agentes por cada creador. Entregado en 24-48h. Para quien quiere un ojo profesional al elegir " +
   "creadores: datos cuantitativos en tiempo real, tomados en el momento del pedido, más la lectura cualitativa de una " +
   "profesional sénior. Se paga por proyecto: 300 € por 5 creadores, 500 € por 10 ordenados, sin suscripción ni contrato " +
-  "anual de plataforma. Independiente: SoniaIA no representa a ningún creador ni cobra nada de ellos. Para quien quiere subcontratar el proceso completo, Find + Vet (1.000 €, precio de lanzamiento, " +
+  "anual de plataforma. Independiente: SoniaIA no representa a ningún creador ni cobra nada de ellos. El coste con el que compararlo es el de elegir mal: lo que pagas al creador + las semanas de brief, seguimiento y revisión de contenido + una campaña que no funciona. Para quien quiere subcontratar el proceso completo, Find + Vet (1.000 €, precio de lanzamiento, " +
   "10 creadores) empieza con una llamada de 15 minutos, filtra el mercado con datos en tiempo real, valida cada creador " +
   "según el brief y añade una guía de lo que funciona ahora en su nicho, para adaptar la estrategia de contenido a casos " +
   "probados y negociar mejor. En una prueba en EE. UU., de 3.031 creadores quedaron 26. Lo revisa Sonia Tamayo Díaz " +
