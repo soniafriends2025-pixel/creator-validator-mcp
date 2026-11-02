@@ -47,6 +47,20 @@ async function handle(request) {
   return transport.handleRequest(req);
 }
 
-export const GET = handle;
+// Stateless server: there is no server-to-client stream and no session to delete.
+// Per the Streamable HTTP spec, answer GET/DELETE with 405 right away (an open GET stream
+// made clients wait for the function timeout). A browser opening /mcp goes to the landing.
+function notAllowed(request) {
+  const accept = request.headers.get("accept") || "";
+  if (request.method === "GET" && accept.includes("text/html")) {
+    return new Response(null, { status: 302, headers: { Location: "/" } });
+  }
+  return new Response(
+    JSON.stringify({ jsonrpc: "2.0", error: { code: -32000, message: "Method not allowed. This MCP server is stateless: use POST." }, id: null }),
+    { status: 405, headers: { Allow: "POST", "Content-Type": "application/json" } }
+  );
+}
+
+export const GET = notAllowed;
 export const POST = handle;
-export const DELETE = handle;
+export const DELETE = notAllowed;
