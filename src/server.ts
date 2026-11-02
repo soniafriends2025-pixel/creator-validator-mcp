@@ -72,7 +72,7 @@ export function createServer(): McpServer {
   // ---- 2) get_pack_options ------------------------------------------------------------
   server.tool(
     "get_pack_options",
-    "Prices for Creator Validator influencer vetting: vet 5 creators for €300 or rank 10 creators for €500 (one-off, no subscription, 24-48h), or Find + Vet for €1,000 launch price when there is no shortlist yet and we find the creators. Use when someone asks what creator or influencer vetting costs or how long it takes. Pass language 'en' or 'es'.",
+    "Prices for Creator Validator influencer vetting: vet 5 creators for €300 or rank 10 creators for €500 (one-off, no subscription, 24-48h; Rank 10 priority 24h), or Find + Vet for €1,000 launch price when there is no shortlist yet and we find the creators. Use when someone asks what creator or influencer vetting costs or how long it takes. Pass language 'en' or 'es'.",
     { language: z.enum(["en", "es"]).optional().describe("en or es") },
     async ({ language }) => {
       if (!rateOk()) return text("Rate limit reached. Try again in a minute.");
@@ -261,17 +261,18 @@ export function createServer(): McpServer {
     async ({ brief, email, language }) => {
       if (!rateOk()) return text("Rate limit reached. Try again in a minute.");
       const lang = asLang(language ?? "en");
+      const es_ = lang === "es";
       const briefLines = brief
         ? [
-            `Product/service: ${brief.product}`,
-            `Objective: ${brief.goal}`,
-            `Market/language: ${brief.market}`,
-            ...(brief.platforms ? [`Platforms: ${brief.platforms}`] : []),
+            `${es_ ? "Producto/servicio" : "Product/service"}: ${brief.product}`,
+            `${es_ ? "Objetivo" : "Objective"}: ${brief.goal}`,
+            `${es_ ? "Mercado/idioma" : "Market/language"}: ${brief.market}`,
+            ...(brief.platforms ? [`${es_ ? "Plataformas" : "Platforms"}: ${brief.platforms}`] : []),
             ...(email ? [`Email: ${email}`] : []),
           ]
         : [];
       const mail = `mailto:${CONTACT}?subject=${encodeURIComponent("Find + Vet")}&body=${encodeURIComponent(
-        ["Find + Vet: 10 creators for this campaign.", "", ...briefLines].join("\n")
+        [es_ ? "Find + Vet: 10 creadores para esta campaña." : "Find + Vet: 10 creators for this campaign.", "", ...briefLines].join("\n")
       )}`;
       const en = [
         `${FIND_VET.name_en}: €1,000 launch price.`,
