@@ -12,20 +12,28 @@ async function readCapped(request) {
   if (!request.body) return new Uint8Array(0);
   const reader = request.body.getReader();
   // Slow-body guard: give up after 5s so a trickling client can't hold the function open.
-  const deadline = setTimeout(() => reader.cancel().catch(() => {}), 5000);
+  let timedOut = false;
+  const deadline = setTimeout(() => {
+    timedOut = true;
+    reader.cancel().catch(() => {});
+  }, 5000);
   const chunks = [];
   let total = 0;
-  for (;;) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    total += value.byteLength;
-    if (total > MAX_BODY_BYTES) {
-      await reader.cancel();
-      return null;
+  try {
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      total += value.byteLength;
+      if (total > MAX_BODY_BYTES) {
+        await reader.cancel();
+        return null;
+      }
+      chunks.push(value);
     }
-    chunks.push(value);
+  } finally {
+    clearTimeout(deadline); // always, including the early over-size return
   }
-  clearTimeout(deadline);
+  if (timedOut) return null; // a cancelled slow body must not be parsed as a truncated request
   const out = new Uint8Array(total);
   let off = 0;
   for (const c of chunks) {
