@@ -19,7 +19,7 @@ import {
   BOOKING_URL,
   FIND_VET,
 } from "./content.js";
-import { buildPayLink, buildPrefillLink, buildPasteBlock, PrefillCreator, PrefillPayload } from "./prefill.js";
+import { buildPrefillLink, buildPasteBlock, PrefillCreator, PrefillPayload } from "./prefill.js";
 
 type Lang = "en" | "es";
 const asLang = (v: unknown): Lang => (String(v).toLowerCase().startsWith("es") ? "es" : "en");
@@ -111,12 +111,12 @@ export function createServer(): McpServer {
 
   server.tool(
     "start_order",
-    "Start an influencer vetting order for creators the buyer already has. Needs the pack, the creator handles or profile links, the campaign brief (product, goal, market) and the buyer email: ask the buyer in the chat for anything missing. Pack rule: more than 5 creators means pack 10 (Rank 10, €500); 5 or fewer means pack 5 (Validate 5, €300) unless the buyer wants the ranked 10-creator pack. BEFORE calling, repeat the email back to the buyer and wait for them to confirm it (the Creator Dossier is delivered there). Returns one link that opens Stripe payment directly with the order inside it; the order goes in automatically once paid and a confirmation email follows. Takes no payment itself and stores nothing. If the buyer has no creators yet, use book_find_and_vet instead.",
+    "Start an influencer vetting order for creators the buyer already has. Needs the pack, the creator handles or profile links, the campaign brief (product, goal, market) and the buyer email: ask the buyer in the chat for anything missing. Pack rule: more than 5 creators means pack 10 (Rank 10, €500); 5 or fewer means pack 5 (Validate 5, €300) unless the buyer wants the ranked 10-creator pack. BEFORE calling, repeat the email back to the buyer and wait for them to confirm it (the Creator Dossier is delivered there). Returns one link to the soniaia.com order form already filled in: the buyer checks it, pays with the normal Stripe checkout, returns in the same tab and clicks Submit. Takes no payment itself and stores nothing. If the buyer has no creators yet, use book_find_and_vet instead.",
     {
       pack: z.union([z.number(), z.string().max(20)]).describe("Pack size: 5 or 10 (or 'validate5' / 'rank10')"),
       creators: z.array(z.union([z.string().max(300), creatorSchema])).max(50).describe("The creator handles or profile URLs (up to the pack size)"),
       // Same required fields as the soniaia.com order form, so the agent asks for them in
-      // the chat and the form arrives complete (it then submits by itself after payment).
+      // the chat and the form arrives complete; the buyer reviews and submits it after payment.
       brief: z
         .object({
           product: z.string().trim().min(1).max(1000).describe("Product or service being promoted"),
@@ -141,7 +141,7 @@ export function createServer(): McpServer {
       const pk = PACKS[packId];
 
       // Normalize creators.
-      // Scheme-less platform links ("tiktok.com/@name") get https:// so the pay page accepts them.
+      // Scheme-less platform links ("tiktok.com/@name") get https:// so the order form accepts them.
       const withScheme = (v: string) =>
         /^(www\.|m\.)?(instagram|tiktok|youtube)\.com\//i.test(v) ? `https://${v}` : v;
       const normalized: PrefillCreator[] = creators.map((c) => {
@@ -169,7 +169,7 @@ export function createServer(): McpServer {
         email,
       };
 
-      const payLink = buildPayLink(payload);
+      const formLink = buildPrefillLink(payload);
       const pasteBlock = buildPasteBlock(payload);
       const fewer = normalized.length < pk.creators;
 
@@ -180,12 +180,14 @@ export function createServer(): McpServer {
           fewer ? ` (the pack covers up to ${pk.creators}; you can send the rest later by replying to the confirmation email)` : ""
         }.`,
         "",
-        "1) Open this link to pay on Stripe. Your order is already inside it:",
-        `   ${payLink}`,
+        "1) Open this link. The order form on soniaia.com is already filled in with your creators and brief. Check it:",
+        `   ${formLink}`,
         "",
-        "2) Pay. That's it: your order goes in automatically, you can close the page after paying.",
+        "2) Click Pay & continue and pay on Stripe. Stay in the same browser tab.",
         "",
-        `3) Right after payment you'll get a confirmation email at ${email} with your order summary. If it doesn't arrive within a few minutes, check your spam or write to ${CONTACT}.`,
+        "3) After paying you come back to your order form, still filled in. Review it and click Submit.",
+        "",
+        `You'll get emails at ${email} with your order link and your order confirmation. If something doesn't arrive within a few minutes, check your spam or write to ${CONTACT}. If the form ever comes back empty, paste the order below into it.`,
         "",
         "Your order:",
         pasteBlock
@@ -201,12 +203,14 @@ export function createServer(): McpServer {
           fewer ? ` (el pack cubre hasta ${pk.creators}; puedes enviar el resto después respondiendo al email de confirmación)` : ""
         }.`,
         "",
-        "1) Abre este enlace para pagar en Stripe. Tu pedido ya va dentro:",
-        `   ${payLink}`,
+        "1) Abre este enlace. El formulario de pedido de soniaia.com ya está relleno con tus creadores y tu brief. Revísalo:",
+        `   ${formLink}`,
         "",
-        "2) Paga. Nada más: tu pedido entra solo y puedes cerrar la página después de pagar.",
+        "2) Pulsa Pay & continue y paga en Stripe. Quédate en la misma pestaña del navegador.",
         "",
-        `3) Justo después del pago recibirás un email de confirmación en ${email} con el resumen de tu pedido. Si no llega en unos minutos, mira en spam o escribe a ${CONTACT}.`,
+        "3) Después de pagar vuelves a tu formulario, todavía relleno. Revísalo y pulsa Submit.",
+        "",
+        `Recibirás emails en ${email} con el enlace de tu pedido y la confirmación. Si algo no llega en unos minutos, mira en spam o escribe a ${CONTACT}. Si el formulario aparece vacío, pega en él el pedido de abajo.`,
         "",
         "Tu pedido:",
         pasteBlock
