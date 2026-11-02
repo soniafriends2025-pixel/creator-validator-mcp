@@ -57,7 +57,19 @@ claude mcp add --transport http creator-validator https://mcp.soniaia.com/mcp
 
 **Claude / ChatGPT / Grok:** add a custom connector with the server URL above.
 
-**Cursor / Gemini CLI:** add the server URL in your MCP settings.
+**Cursor / Claude Desktop / any MCP client** (`mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "creator-validator": {
+      "url": "https://mcp.soniaia.com/mcp"
+    }
+  }
+}
+```
+
+Server card: https://mcp.soniaia.com/.well-known/mcp/server-card.json · Official registry: `com.soniaia/creator-validator`
 
 Instagram, TikTok and YouTube. English and Spanish.
 

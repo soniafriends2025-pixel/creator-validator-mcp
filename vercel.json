@@ -6,6 +6,10 @@
     {
       "source": "/mcp",
       "destination": "/api/mcp"
+    },
+    {
+      "source": "/mcp/server-card",
+      "destination": "/.well-known/mcp/server-card.json"
     }
   ],
   "headers": [
@@ -15,6 +19,19 @@
         {
           "key": "X-Robots-Tag",
           "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/.well-known/mcp/server-card.json",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
         }
       ]
     }
